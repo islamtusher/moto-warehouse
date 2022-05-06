@@ -12,7 +12,7 @@ const Header = () => {
                     <Link className='brand' to={'/'}>Moto WareHouse</Link>
                     <Navbar.Toggle className='bg-light' aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav ">
-                        <Nav className="ms-auto d-flex align-items-center">
+                        <Nav className="ms-auto d-flex align-items-center p-0">
                             
                             <CustomLink to={'/'}> Home</CustomLink>
                             <CustomLink to={'/collection'}> Collection</CustomLink>

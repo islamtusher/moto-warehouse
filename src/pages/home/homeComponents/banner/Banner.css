@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+.banner{
+    background-image: url('../../../../../public/images/banner.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,.6);
+    background-blend-mode: overlay;
+    background-position:right;
+    background-size:cover;
+    background-attachment: fixed;
+    position: relative;
+    clip-path: polygon(85% 99%,100% 94%,100% 0,100% 0,0 0,0 88%);
+}
+.logo{
+    color: red;
+    
+}
+.main-title h1{
+    font-size: 50px;
+    font-family: 'Aclonica', sans-serif;
+    color: rgb(255, 255, 255);
+}
+.sub-title h6{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(85, 218, 255);
+}
+.banner-buttons{
+    position: absolute;
+    bottom: 50px;
+}
+
+.common-btn{
+    position: relative;
+    overflow: hidden;
+
+    padding: 6px 30px;
+    margin: 0 20px;
+    font-size: 23px;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(255, 255, 255);
+    border-radius: 50px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color:transparent;
+}
+.common-btn::before{
+    content: "";
+    background-color: rgb(132, 247, 255);
+    
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+
+    z-index: -1;
+
+    transition: transform .2s ease-in;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+.common-btn:hover::before{
+    transform: scaleX(1);
+}
+.common-btn{
+    transition: color .2s ease-in;
+    z-index: 1;
+}
+.common-btn:hover{
+    color: rgb(4, 1, 27);
+    cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+    .banner{
+        padding: 400px 10px;
+    }
+}
