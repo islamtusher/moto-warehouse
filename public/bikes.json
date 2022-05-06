@@ -1,0 +1,83 @@
+[
+    {
+      "_id": "627552be3e489994518c0503",
+      "picture": "./images/bike1.jpg",
+      "name": "Yamaha",
+      "price": "480000",
+      "describe": "about speed",
+      "quantity": "10",
+      "supplier": "bd bikers"
+    },
+    {
+      "_id": "627552bec109701d6d979685",
+      "picture": "./images/bike2.jpg",
+      "name": "Suzuki",
+      "price": "480000",
+      "describe": "about speed",
+      "quantity": "10",
+      "supplier": "bd bikers"
+    },
+    {
+      "_id": "627552be72e2b2c0d07bb4db",
+      "picture": "./images/bike3.jpg",
+      "name": "Pulsur",
+      "price": "480000",
+      "describe": "about speed",
+      "quantity": "10",
+      "supplier": "bd bikers"
+    },
+    {
+      "_id": "627552beea17d22790909229",
+      "picture": "./images/bike4.jpg",
+      "name": "Zontes",
+      "price": "480000",
+      "describe": "about speed",
+      "quantity": "10",
+      "supplier": "bd bikers"
+    },
+    {
+      "_id": "627552be9a9dfd918faa73e2",
+      "picture": "./images/bike5.jpg",
+      "name": "KTM",
+      "price": "480000",
+      "describe": "about speed",
+      "quantity": "10",
+      "supplier": "bd bikers"
+    },
+    {
+      "_id": "627552bea6444a5c725b840b",
+      "picture": "./images/bike6.jpg",
+      "name": "BMW",
+      "price": "480000",
+      "describe": "about speed",
+      "quantity": "10",
+      "supplier": "bd bikers"
+    },
+    {
+      "_id": "627552be8d01ae8733568c04",
+      "picture": "./images/bike7.jpg",
+      "name": "Honda",
+      "price": "480000",
+      "describe": "about speed",
+      "quantity": "10",
+      "supplier": "bd bikers"
+    },
+    {
+      "_id": "627552beb38e643c9b175836",
+      "picture": "./images/bike8.jpg",
+      "name": "Apache",
+      "price": "480000",
+      "describe": "about speed",
+      "quantity": "10",
+      "supplier": "bd bikers"
+    },
+    {
+      "_id": "627552be59037d4c151189ca",
+      "picture": "./images/bike9.jpg",
+      "name": "RTR",
+      "price": "480000",
+      "describe": "about speed",
+      "quantity": "10",
+      "supplier": "bd bikers"
+    }
+  ]
