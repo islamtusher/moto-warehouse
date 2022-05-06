@@ -1,7 +1,7 @@
 [
     {
       "_id": "627552be3e489994518c0503",
-      "picture": "./images/bike1.jpg",
+      "picture": "./images/bike1.png",
       "name": "Yamaha",
       "price": "480000",
       "describe": "about speed",
@@ -10,7 +10,7 @@
     },
     {
       "_id": "627552bec109701d6d979685",
-      "picture": "./images/bike2.jpg",
+      "picture": "./images/bike2.png",
       "name": "Suzuki",
       "price": "480000",
       "describe": "about speed",
@@ -19,7 +19,7 @@
     },
     {
       "_id": "627552be72e2b2c0d07bb4db",
-      "picture": "./images/bike3.jpg",
+      "picture": "./images/bike3.png",
       "name": "Pulsur",
       "price": "480000",
       "describe": "about speed",
@@ -28,7 +28,7 @@
     },
     {
       "_id": "627552beea17d22790909229",
-      "picture": "./images/bike4.jpg",
+      "picture": "./images/bike4.png",
       "name": "Zontes",
       "price": "480000",
       "describe": "about speed",
@@ -37,7 +37,7 @@
     },
     {
       "_id": "627552be9a9dfd918faa73e2",
-      "picture": "./images/bike5.jpg",
+      "picture": "./images/bike5.png",
       "name": "KTM",
       "price": "480000",
       "describe": "about speed",
@@ -46,7 +46,7 @@
     },
     {
       "_id": "627552bea6444a5c725b840b",
-      "picture": "./images/bike6.jpg",
+      "picture": "./images/bike6.png",
       "name": "BMW",
       "price": "480000",
       "describe": "about speed",
@@ -55,7 +55,7 @@
     },
     {
       "_id": "627552be8d01ae8733568c04",
-      "picture": "./images/bike7.jpg",
+      "picture": "./images/bike7.png",
       "name": "Honda",
       "price": "480000",
       "describe": "about speed",
@@ -64,7 +64,7 @@
     },
     {
       "_id": "627552beb38e643c9b175836",
-      "picture": "./images/bike8.jpg",
+      "picture": "./images/bike8.png",
       "name": "Apache",
       "price": "480000",
       "describe": "about speed",
@@ -73,7 +73,7 @@
     },
     {
       "_id": "627552be59037d4c151189ca",
-      "picture": "./images/bike9.jpg",
+      "picture": "./images/bike9.png",
       "name": "RTR",
       "price": "480000",
       "describe": "about speed",

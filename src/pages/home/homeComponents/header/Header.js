@@ -15,7 +15,7 @@ const Header = () => {
                         <Nav className="ms-auto d-flex align-items-center p-0">
                             
                             <CustomLink to={'/'}> Home</CustomLink>
-                            <CustomLink to={'/collection'}> Collection</CustomLink>
+                            <CustomLink to={'/inventory'}> Inventory</CustomLink>
                             <CustomLink to={'/blogs'}> Blogs</CustomLink>
                             <CustomLink to={'/contact'}> Contact</CustomLink>
                             

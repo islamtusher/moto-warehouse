@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
-import Collection from './pages/collection/Collection';
+import Inventory from './pages/inventory/Inventory';
 import Home from './pages/home/Home';
 import Footer from './pages/home/homeComponents/footer/Footer';
 import Header from './pages/home/homeComponents/header/Header';
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/collection' element={<Collection></Collection>}></Route>
+        <Route path='/inventory' element={<Inventory></Inventory>}></Route>
         <Route path='/contact' element={<Footer></Footer>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
