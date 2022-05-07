@@ -33,7 +33,7 @@
 }
 .all-category:hover{
     transform: scale(1.1);
-    background-color: rgb(2, 151, 206);
+    background-color: rgb(31, 166, 250);
     border-left: 7px solid rgb(255, 255, 255);
     color: rgb(255, 255, 255);
 }
