@@ -38,7 +38,8 @@ const Inventory = () => {
     const handleRestock = (e) => {
         e.preventDefault()
         const reStockValue = e.target.quantity.value
-
+        
+        // user input validation
         if (isNaN(reStockValue) || /\D/.test(reStockValue)) {
             alert("Please Enter A Numerical and Integer Number")
             return
@@ -64,7 +65,6 @@ const Inventory = () => {
     }
 
     return (
-        // d-flex justify-content-evenly align-items-center
         <Container className='inventory-page '>
             <h1 className='section-title'>INVENTORY</h1>
             <Row xs={1} md={2}  className='gy-5 w-100 '>
