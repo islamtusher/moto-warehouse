@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import './Inventory.css'
 
@@ -15,16 +15,15 @@ const Inventory = () => {
             .then(data => setbike(data))
     }, [id, newQuantity])
 
-    // update quantity
+    // decress quantity for delivared
     const handleUpDateQuantity = (value) => {
         if (value <= 0) {
             alert('stoke empty')
             return
         }
-        const quantity = parseInt(value) - 1
-        const upDatedQuantity = {quantity}
+        const newQuantity = parseInt(value) - 1
+        const upDatedQuantity = {newQuantity}
         setUpDatedQuantity(upDatedQuantity)
-        // console.log(typeof upDatedQuantity, upDatedQuantity);
 
         fetch(`http://localhost:5000/bike/${id}`, {
             method: 'PUT',
@@ -33,10 +32,37 @@ const Inventory = () => {
             },
             body: JSON.stringify(upDatedQuantity)
         })
-            .then(res => res.json())
-            .then(data => console.log(data))
     }
-    // console.log(upDatedQuantity);
+
+    // add quantity for handleRestock
+    const handleRestock = (e) => {
+        e.preventDefault()
+        const reStockValue = e.target.quantity.value
+
+        if (isNaN(reStockValue) || /\D/.test(reStockValue)) {
+            alert("Please Enter A Numerical and Integer Number")
+            return
+        }
+        else {
+            const newQuantity = parseInt(quantity) + parseInt(reStockValue)
+            const upDatedQuantity = {newQuantity}
+            setUpDatedQuantity(newQuantity)
+
+            fetch(`http://localhost:5000/bike/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(upDatedQuantity)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    alert("Restock On Database")
+                    e.target.reset()
+                })
+        }
+    }
+
     return (
         // d-flex justify-content-evenly align-items-center
         <Container className='inventory-page '>
@@ -72,8 +98,9 @@ const Inventory = () => {
                     <button onClick={()=>handleUpDateQuantity(quantity)} className='mt-2' type="submit">Delivared</button>
                 </Col>
                 <Col className='p-0 '>
-                    <Form className='inventory-form '>
-                        <input type="text" placeholder='Push Stock' />
+                    <Form onSubmit={handleRestock} className='inventory-form '>
+                        <input type="text" name='quantity' placeholder='Push Stock' />
+                        <Button type='submit'> Restock</Button>
                     </Form>
                 </Col>
             </Row>
