@@ -1,4 +1,5 @@
 import React from 'react';
+import './Home.css'
 import Banner from './homeComponents/banner/Banner';
 import Collections from './homeComponents/collections/Collections';
 import Footer from './homeComponents/footer/Footer';

@@ -1,91 +1,100 @@
 [
     {
-      "_id": "627552be3e489994518c0503",
+      
       "picture": "/images/bike1.png",
       "name": "BMW T9034 RX",
       "title": "SPORTINESS AT MAXIMUM POWER",
       "price": "480000",
       "describe": "SPORTINESS AT MAXIMUM POWER. Model Year. 2021. BMW state-of-the-art six-axis Inertial Measurement Unit.. Engine, cm3. 205. Transmission. Automatic, Acoustic Amplifier Grilles",
       "quantity": "10",
+      "sold": "13",
       "supplier": "BMW"
     },
     {
-      "_id": "627552bec109701d6d979685",
+      
       "picture": "/images/bike2.png",
       "name": "YAMAHA MT-10",
       "title": "AGGRESSIVE NEW LOOK",
       "price": "680000",
       "describe": "Compact, Aggressive New Look, New Six-Axis IMU with Rider Aids, Updated High-Torque 998cc CP4 Engine, Acoustic Amplifier Grilles, Improved Quick Shift System (QSS)",
       "quantity": "20",
+      "sold": "13",
       "supplier": "YAMAHA"
     },
     {
-      "_id": "627552be72e2b2c0d07bb4db",
+      
       "picture": "/images/bike3.png",
       "name": "HONDA CB500X ABS",
       "title": "THE DARKEST ENERGY",
       "price": "580000",
       "describe": "The new bike retains the old 471cc liquid-cooled parallel twin engine, still housed within a steel-tube frame. slip-assist clutch, LED lighting, and digital instrument panel",
       "quantity": "15",
+      "sold": "3",
       "supplier": "HONDA"
     },
     {
-      "_id": "627552beea17d22790909229",
+      
       "picture": "/images/bike4.png",
       "name": "KAWASAKI VULCAN",
       "title": "THE EXHILARATING RIDE",
       "price": "520000",
       "describe": "Powered by a 649cc Ninja®-derived engine, the Vulcan® S motorcycle delivers potent power with ample low- to mid-range torque for an exhilarating ride. adjustable configurations to fit.",
       "quantity": "12",
+      "sold": "7",
       "supplier": "KAWASAKI"
     },
     {
-      "_id": "627552be9a9dfd918faa73e2",
+      
       "picture": "/images/bike5.png",
       "name": "KTM RC 390 BASE",
       "title": "THE HIGN PERFORMER",
       "price": "480000",
       "describe": "The KTM RC 390's state-of-the-art, single-cylinder engine with twin overhead camshafts once again underlines KTM's development strength, a high-performance Supersports machine",
-      "quantity": "10",
+      "quantity": "30",
+      "sold": "9",
       "supplier": "KTM"
     },
     {
-      "_id": "627552bea6444a5c725b840b",
+      
       "picture": "/images/bike6.png",
       "name": "DUCATI HYPER 950",
       "title": "THE SPORTS BIKE",
       "price": "1430000",
       "describe": "Ducati Hypermotard 950 is a sports bike, an intriguing, standout bike when unveiled at the tail end of 2018 in Milan, Its new underseat exhausts and 916-inspired pipe ",
       "quantity": "20",
+      "sold": "13",
       "supplier": "DUCATI"
     },
     {
-      "_id": "627552be8d01ae8733568c04",
+      
       "picture": "/images/bike7.png",
       "name": "KAWASAKI VULCAN 900",
       "price": "800000",
       "describe": "Kawasaki Vulcan S is a cruiser bike, Powered by a 649cc Ninja®-derived engine, delivers potent power with ample low- to mid-range torque for an exhilarating ride",
       "quantity": "7",
+      "sold": "3",
       "supplier": "NINJA KAWASAKI"
     },
     {
-      "_id": "627552beb38e643c9b175836",
+      
       "picture": "/images/bike8.png",
       "name": "KAWASAKI Z900RS CAFE",
       "titile": "THE RETRO REVOLUTION",
       "price": "480000",
       "describe": "The Kawasaki Z900RS CAFE motorcycle features a signature café-racer style front cowl and a potent 948cc inline four-cylinder engine for a classic yet modern",
-      "quantity": "10",
+      "quantity": "20",
+      "sold": "13",
       "supplier": "KAWASAKI"
     },
     {
-      "_id": "627552be59037d4c151189ca",
+      
       "picture": "/images/bike9.png",
       "name": "ZONTES ZT155-G1",
       "titile": "COMPACT AND GOTGEOUS",
       "price": "480000",
       "describe": "Zontes. CC: 150 is an understated modern street scrambler that has to be seen. Lightweight yet planted on the road,A beautiful and powerful LED headlight",
       "quantity": "10",
+      "sold": "12",
       "supplier": "ZONTES"
     }
   ]
