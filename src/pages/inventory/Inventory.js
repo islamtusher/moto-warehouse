@@ -5,13 +5,38 @@ import './Inventory.css'
 
 const Inventory = () => {
     const { id } = useParams()
+    const[ newQuantity, setUpDatedQuantity] = useState(0)
     const [{name, picture, price, title, describe, quantity, sold, supplier}, setbike] = useState({})
+    
+    //load single data by id
     useEffect(() => {
         fetch(`http://localhost:5000/bike/${id}`)
             .then(res => res.json())
             .then(data => setbike(data))
-    }, [id])
+    }, [id, newQuantity])
 
+    // update quantity
+    const handleUpDateQuantity = (value) => {
+        if (value <= 0) {
+            alert('stoke empty')
+            return
+        }
+        const quantity = parseInt(value) - 1
+        const upDatedQuantity = {quantity}
+        setUpDatedQuantity(upDatedQuantity)
+        // console.log(typeof upDatedQuantity, upDatedQuantity);
+
+        fetch(`http://localhost:5000/bike/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(upDatedQuantity)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+    // console.log(upDatedQuantity);
     return (
         // d-flex justify-content-evenly align-items-center
         <Container className='inventory-page '>
@@ -44,6 +69,7 @@ const Inventory = () => {
                             <span className=''>{supplier}</span>
                         </div>
                     </div>
+                    <button onClick={()=>handleUpDateQuantity(quantity)} className='mt-2' type="submit">Delivared</button>
                 </Col>
                 <Col className='p-0 '>
                     <Form className='inventory-form '>
