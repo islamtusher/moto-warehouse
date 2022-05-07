@@ -2,7 +2,7 @@ import React from 'react';
 import './Banner.css'
 const Banner = () => {
     return (
-        <div className='banner d-flex flex-column justify-content-center align-items-center '>
+        <div className='banner d-flex flex-column justify-content-center align-items-start '>
             <div className='titile text-light '> 
                 <div className="sub-title text-center">
                     <img className='logo' src="./images/logo.png" alt="" />

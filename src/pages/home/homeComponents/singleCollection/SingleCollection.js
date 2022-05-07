@@ -1,9 +1,11 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const SingleCollection = ({ bike }) => {
-    const { name, picture, price, describe } = bike
-    console.log(picture);
+    const { _id,name, picture, price, describe } = bike
+    const navigate = useNavigate()
+
     return (
         <Col className='d-flex justify-content-center p-0'>
             <Card className='h-100 card'>
@@ -14,7 +16,7 @@ const SingleCollection = ({ bike }) => {
                     <Card.Text className='font card-text'>{describe}</Card.Text>
                 </Card.Body>
                 <Card.Footer className='d-flex justify-content-center align-items-center bg-white border-0 mt-3'>
-                    <button className='common-btn' style={{'border': '1px solid black', 'color': 'black'}} type="submit">Manage Stock</button>
+                    <button onClick={()=>navigate(`/inventory/${_id}`)} className='common-btn' style={{'border': '1px solid black', 'color': 'black'}} type="submit">Manage Stock</button>
                 </Card.Footer>
             </Card>
         </Col>
