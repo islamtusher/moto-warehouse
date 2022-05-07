@@ -1,9 +1,12 @@
+
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Button, Container, Row } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import useBikes from '../../../../customHooks/useBikes';
 import SingleCollection from '../singleCollection/SingleCollection';
 
 const Collections = () => {
+    const navigate = useNavigate()
     const [bikes] = useBikes()
     // console.log(bikes);
     return (
@@ -18,6 +21,7 @@ const Collections = () => {
                             </SingleCollection>)
                     }
                 </Row>
+                <Button onClick={()=>navigate('/manageInventory')}>Manage Inventory</Button>
             </Container>
             
         </div>

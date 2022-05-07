@@ -8,6 +8,7 @@ import Login from './pages/login/Login';
 import PageNotFound from './pages/notFound/PageNotFound';
 import SignUp from './pages/signup/SignUp';
 import RequireAuth from './pages/RequirAuth';
+import ManageInventory from './pages/manageInventory/ManageInventory';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Inventory></Inventory>
           </RequireAuth>}>
         </Route>
+        <Route path='/manageInventory' element={<ManageInventory></ManageInventory>}></Route>
         <Route path='/contact' element={<Footer></Footer>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>

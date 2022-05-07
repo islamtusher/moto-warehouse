@@ -1,4 +1,4 @@
-import './Service.css'
+import './Services.css'
 import { faBoxOpen, faPlane, faTruckMoving, faWarehouse } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
@@ -9,43 +9,49 @@ const Services = () => {
         <div>
             <h1>OUR SERVICES</h1>
             <Container>
-                <Row  xs={1} md={2} className="gy-5">
-                    <Col className='d-flex align-items-center'>
-                        <div className="service-icon ">
-                            <FontAwesomeIcon className='icon ms-5 fs-1' icon={faTruckMoving} />
-                        </div>
-                        <div className="service-info">
-                            
+                <Row  xs={1} md={1} lg={2} className="gy-5 w-100 m-0">
+                    <Col className='p-0'>
+                        <div className='service-cart'>
+                            <div className="service-icon ">
+                                <FontAwesomeIcon className='icon' icon={faTruckMoving} />
+                            </div>
+                            <div className="service-info">
                                 <h5>GROUND TRANSPORT</h5>
                                 <p>MOTO-WareHouse began providing transportation solutions to Transports contract warehousing customers in the 1980s.</p>
-                            
+                            </div>
+                       </div>
+                    </Col>
+                    <Col className='p-0'>
+                        <div className="service-cart">
+                            <div className="service-icon">
+                                <FontAwesomeIcon className='icon' icon={faWarehouse} />
+                            </div>
+                            <div className="service-info">
+                                <h5>WAREHOUSING</h5>
+                                <p>MOTO-WareHouse provides warehousing, fulfillment services, and transportation management across North America</p>
+                            </div>
                         </div>
                     </Col>
-                    <Col className='d-flex align-items-center'>
-                        <div className="service-icon">
-                            <FontAwesomeIcon className='icon ms-5 fs-1' icon={faWarehouse} />
-                        </div>
-                        <div className="service-info">
-                            <h5>WAREHOUSING</h5>
-                            <p>MOTO-WareHouse provides warehousing, fulfillment services, and transportation management across North America</p>
-                        </div>
-                    </Col>
-                    <Col className='d-flex align-items-center'>
-                        <div className="service-icon">
-                            <FontAwesomeIcon className='icon ms-5 fs-1' icon={faBoxOpen} />
-                        </div>
-                        <div className="service-info">
-                            <h5>PACKAGING AND STORAGE</h5>
-                            <p>MOTO-WareHouse offers complete, customized solutions for all of your business storage needs.</p>
+                    <Col className='p-0'>
+                        <div className="service-cart">
+                            <div className="service-icon">
+                                <FontAwesomeIcon className='icon' icon={faBoxOpen} />
+                            </div>
+                            <div className="service-info">
+                                <h5>PACKAGING AND STORAGE</h5>
+                                <p>MOTO-WareHouse offers complete, customized solutions for all of your business storage needs.</p>
+                            </div>
                         </div>
                     </Col>
-                    <Col className='d-flex align-items-center'>
-                        <div className="service-icon">
-                            <FontAwesomeIcon className='icon ms-5 fs-1' icon={faPlane} />
-                        </div>
-                        <div className="service-info">
-                            <h5>LOGISTIC SERVICE</h5>
-                            <p>MOTO-WareHouse offers a host of logistic management services and supply chain solutions.</p>
+                    <Col className='p-0'>
+                        <div className="service-cart">
+                            <div className="service-icon">
+                                <FontAwesomeIcon className='icon' icon={faPlane} />
+                            </div>
+                            <div className="service-info">
+                                <h5>LOGISTIC SERVICE</h5>
+                                <p>MOTO-WareHouse offers a host of logistic management services and supply chain solutions.</p>
+                            </div>
                         </div>
                         
                     </Col>
