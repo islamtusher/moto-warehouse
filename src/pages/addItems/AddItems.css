@@ -1,17 +1,63 @@
 .adding-form{
-    background-image: url('../../../public/images/banner2.jpg');
-    height: 86vh;
-    /* padding-bottom: 160px; */
-    /* padding: 0px 0 150px 0; */
-    background-repeat: no-repeat;
-    background-color: rgba(0,0,0,.7);
+    background-image: url("../../../public/images/banner.jpg");
+    padding: 140px 0px 130px 0;
+    background-color: rgba(0,0,0,.4);
     background-blend-mode: overlay;
+    background-repeat: no-repeat;
     background-position:center;
     background-size:cover;
+    clip-path: polygon(15% 99%,100% 85%,100% 0,100% 0,0 0,0 90%);
     background-attachment: fixed;
-    clip-path: polygon(85% 99%,100% 94%,100% 0,100% 0,0 0,0 88%);
+    font-family: 'Poppins', sans-serif;
 }
-.form-part{
-    /* width: 35%; */
+.form-area{
+    width: 45%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 40px 0px;
     margin: 0 auto;
+}
+
+.form-contain input, textarea{
+    border: none;
+    border-bottom: 1px solid rgb(189, 189, 189);
+    border-radius: 3px;
+    background-color: rgb(240, 240, 240);
+}
+.add-title{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: rgb(2, 151, 206);
+    margin: 0;
+}
+.form-part textarea{
+    /* height: 200px; */
+    /* padding-bottom: 50px ; */
+}
+.add-btn{
+   background-color: rgb(4, 147, 224);
+   padding: 10px 40px;
+   color: white;
+   font-size: 22px;
+   border: none;
+   border-radius: 3px;
+}
+.add-btn:hover{
+   background-color: rgb(2, 162, 221);
+}
+@media only screen and (max-width: 768px) {
+    .adding-form{
+        clip-path: polygon(15% 99%,100% 90%,100% 0,100% 0,0 0,0 95%);
+
+    }
+    .form-area{
+        width: 80%;
+        /* background-color: aliceblue;
+        padding: 40px 0px;
+        margin: 0 auto; */
+    }
+    .form-contain{
+        display: flex;
+        flex-direction: column;
+    }
 }

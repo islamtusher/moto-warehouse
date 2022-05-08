@@ -4,6 +4,9 @@ import './AddItems.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebaseConfig';
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStore } from '@fortawesome/free-solid-svg-icons';
 
 const AddItems = () => {
     const [user] = useAuthState(auth)
@@ -35,20 +38,32 @@ const AddItems = () => {
     return (
         <div>
             <div className='adding-form'>
-                <h1 className='section-title'> ADD ITEMS</h1>
-                <form onSubmit={handleSubmit(onSubmit)} className='form-part d-flex mx-auto '>
-                    <div className="d-flex flex-column">
-                        <input className='mb-2 py-2 px-1' placeholder='Service Name' type='text' name='service name'  {...register("name", { required: true }) } />
-                        <input className='mb-2 py-2 px-1' placeholder='Item Title' type='text' name='title'  {...register("title", { required: true }) } />
-                        <input className='mb-2 py-2 px-1' placeholder='Price ( Give Newmaric )' type="number" name='price' {...register("price", { required: true }) } />
-                        <input className='mb-2 py-2 px-1' placeholder='Quantity' type="number" name='quantity' {...register("quantity", { required: true })} />
-                        <input className='mb-2 py-2 px-1' placeholder='Supplier' type='text' name='supplier' {...register("supplier", { required: true })} />
-                    </div>
-                    <div className="d-flex flex-column">
-                        <input className='mb-2 py-2 px-1' placeholder='Picture URL'  type='text' name='email' {...register("picture", { required: true }) } />
-                        <textarea className='mb-2 py-2 px-1' placeholder='Describtion'  {...register("describe", { required: true }) } />
-                        <input type="submit" value="Add" />
-                    </div>
+                <form onSubmit={handleSubmit(onSubmit)} className='form-area'>
+                    <Container>
+                        <h4 className='add-title '> ADD YOUR ITEMS</h4>
+                        <p>Stoke Your Categorys, We Provied Best WareHouse Servies</p>
+                        <Row xs={1} md={1} lg={2} className='form-contain '>
+                            <Col className="form-part d-flex flex-column">
+                                
+                                <input className='mb-3 py-2 px-2' placeholder='Service Name' type='text' name='service name'  {...register("name", { required: true }) } />
+                                <input className='mb-3 py-2 px-2' placeholder='Item Title' type='text' name='title'  {...register("title", { required: true }) } />
+                                <input className='mb-3 py-2 px-2' placeholder='Price ( Give Newmaric )' type="number" name='price' {...register("price", { required: true }) } />
+                                <input className='mb-3 py-2 px-2' placeholder='Quantity' type="number" name='quantity' {...register("quantity", { required: true })} />
+                            </Col>
+                            <Col className="form-part d-flex flex-column">
+                                <input className='mb-3 py-2 px-2' placeholder='Supplier' type='text' name='supplier' {...register("supplier", { required: true })} />
+                                <input className='mb-3 py-2 px-2' placeholder='Picture URL'  type='text' name='email' {...register("picture", { required: true }) } />
+                                <textarea className='mb-3 pb-5 px-1' placeholder='Describtion'  {...register("describe", { required: true }) } />
+                                
+                            </Col>
+                        </Row>
+                        <div className='text-end'>
+                            <button className='add-btn ' type="submit" value="">
+                                <FontAwesomeIcon className='me-2' icon={faStore} />
+                                ADD ITEM
+                            </button>
+                        </div>
+                    </Container>
                 </form>
             </div>
         </div>
