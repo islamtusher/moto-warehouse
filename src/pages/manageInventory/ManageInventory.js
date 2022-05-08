@@ -1,12 +1,18 @@
 import './ManageInventory.css'
 import { faDeleteLeft, faStore, faStoreSlash, faTrashCan, faWarehouse } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import useBikes from '../../customHooks/useBikes';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebaseConfig';
+import { useNavigate } from 'react-router-dom';
 
 const ManageInventory = () => {
+    const [user] = useAuthState(auth)
+    const navigate = useNavigate()
+    
     const [bikes] = useBikes()
     const { register, handleSubmit } = useForm();
 
@@ -28,6 +34,21 @@ const ManageInventory = () => {
 
     // handle item adding form
     const onSubmit = data => {
+        
+        // || /\D/.test(reStockValue))
+        // user input validation
+        // if (isNaN(data.price) || data.price < 1){
+        //     alert("Please Enter A Numerical Number")
+        //     return
+        // }
+        
+        data['sold'] = 0;
+        data['email'] = user?.email;
+        console.log(data);
+        if (isNaN(data.quantity) || /\D/.test(data.quantity)){
+            alert("Please Enter A Numerical and Integer Number")
+            return
+        }
         fetch('http://localhost:5000/bikes', {
             method: 'POST',
             headers: {
@@ -45,7 +66,7 @@ const ManageInventory = () => {
         <div>
             <h1 className='section-title'>MANAGE INVENTORY</h1>
             <Container>
-                <Button>Add Item</Button>
+                <Button onClick={()=>navigate('/myitems')}>Add Item</Button>
                 <Row xs={1} md={2} className="gy-5 w-100 m-0">
                     <Col className='delete-management'>
                         <Row  xs={1} md={2} lg={2} className="gy-5 w-100 m-0">
@@ -76,13 +97,14 @@ const ManageInventory = () => {
                     <Col className='adding-management'>
                         <div>
                             <form onSubmit={handleSubmit(onSubmit)} className='d-flex flex-column mx-auto '>
-                                <input className='mb-2 py-2 px-1' placeholder='Service Name'  {...register("name", { required: true }) } />
-                                <input className='mb-2 py-2 px-1' placeholder='Item Title'  {...register("title", { required: true }) } />
-                                <input className='mb-2 py-2 px-1' placeholder='Price' type="number" {...register("price", { required: true }) } />
-                                <input className='mb-2 py-2 px-1' placeholder='Picture URL'  {...register("picture", { required: true }) } />
-                                <input className='mb-2 py-2 px-1' placeholder='Quantity' {...register("quantity", { required: true })} />
-                                <input className='mb-2 py-2 px-1' placeholder='Supplier' {...register("supplier", { required: true })} />
-                                <input className='mb-2 py-2 px-1' placeholder='Sold' value='0' disabled {...register("sold")} />
+                                {/* <input className='mb-2 py-2 px-1' placeholder='User Email' type='email'  value={user?.email} {...register("email") } /> */}
+                                <input className='mb-2 py-2 px-1' placeholder='Service Name' type='text' name='service name'  {...register("name", { required: true }) } />
+                                <input className='mb-2 py-2 px-1' placeholder='Item Title' type='text' name='title'  {...register("title", { required: true }) } />
+                                <input className='mb-2 py-2 px-1' placeholder='Price ( Give Newmaric )' type="number" name='price' {...register("price", { required: true }) } />
+                                <input className='mb-2 py-2 px-1' placeholder='Picture URL'  type='text' name='email' {...register("picture", { required: true }) } />
+                                <input className='mb-2 py-2 px-1' placeholder='Quantity' type="number" name='quantity' {...register("quantity", { required: true })} />
+                                <input className='mb-2 py-2 px-1' placeholder='Supplier' type='text' name='supplier' {...register("supplier", { required: true })} />
+                                {/* <input className='mb-2 py-2 px-1' placeholder='Sold' type="number" value='0' {...register("sold")} /> */}
                                 <textarea className='mb-2 py-2 px-1' placeholder='Describtion'  {...register("describe", { required: true }) } />
                                 <input type="submit" value="Add" />
                             </form>

@@ -9,6 +9,7 @@ import PageNotFound from './pages/notFound/PageNotFound';
 import SignUp from './pages/signup/SignUp';
 import RequireAuth from './pages/RequirAuth';
 import ManageInventory from './pages/manageInventory/ManageInventory';
+import MyItems from './pages/myItems/MyItems';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           </RequireAuth>}>
         </Route>
         <Route path='/manageInventory' element={<ManageInventory></ManageInventory>}></Route>
+        <Route path='/myitems' element={<MyItems></MyItems>}></Route>
         <Route path='/contact' element={<Footer></Footer>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>

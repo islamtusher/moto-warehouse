@@ -6,23 +6,24 @@ import './Inventory.css'
 const Inventory = () => {
     const { id } = useParams()
     const[ newQuantity, setUpDatedQuantity] = useState(0)
-    const [{name, picture, price, title, describe, quantity, sold, supplier}, setbike] = useState({})
-    
+    const [bike, setbike] = useState({})
+    const {name, picture, price, title, describe, quantity, sold, supplier} = bike
     //load single data by id
     useEffect(() => {
         fetch(`http://localhost:5000/bike/${id}`)
             .then(res => res.json())
             .then(data => setbike(data))
-    }, [id, newQuantity])
+    }, [id, newQuantity, bike])
 
     // decress quantity for delivared
-    const handleUpDateQuantity = (value) => {
+    const handleUpDateQuantity = (value, value2) => {
         if (value <= 0) {
             alert('stoke empty')
             return
         }
         const newQuantity = parseInt(value) - 1
-        const upDatedQuantity = {newQuantity}
+        // const newSold = parseInt(value2) + 1
+        const upDatedQuantity = { newQuantity }
         setUpDatedQuantity(upDatedQuantity)
 
         fetch(`http://localhost:5000/bike/${id}`, {
@@ -95,7 +96,7 @@ const Inventory = () => {
                             <span className=''>{supplier}</span>
                         </div>
                     </div>
-                    <button onClick={()=>handleUpDateQuantity(quantity)} className='mt-2' type="submit">Delivared</button>
+                    <button onClick={()=>handleUpDateQuantity(quantity, sold)} className='mt-2' type="submit">Delivared</button>
                 </Col>
                 <Col className='p-0 '>
                     <Form onSubmit={handleRestock} className='inventory-form '>
