@@ -1,17 +1,36 @@
 .inventory-page{
+    font-family: 'Poppins', sans-serif;
     margin-top: 100px;
     margin-bottom: 100px;
+}
+.inventory-card{
+    width: 75%;
+}
+.inventory-name{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    font-weight: bold;
+    color: rgb(88, 87, 87);
 }
 .flex-div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.flex-div h3{
+    color: rgb(47, 137, 255);
+    border-bottom: 1px solid rgb(0, 110, 255);
+}
+.inventory-btn{
+    background-color:rgb(19, 148, 246); 
+    padding: 10px 10px;
+    margin-top: 20px;
+    font-size: 22px;
 
 }
-.inventory-img{
-    
-}
-.inventory-name{}
-.inventory-form{
+@media screen and (max-width: 767px) {
+    .inventory-card{
+        width: 95%;
+    }
 }

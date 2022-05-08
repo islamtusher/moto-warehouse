@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseConfig';
+import Loading from '../loading/Loading';
 
 const MyItems = () => {
     const [user] = useAuthState(auth)
     const [myItems, setMyItems] = useState([])
+
+    // load myItems by filter email
     useEffect(() => {
         fetch(`http://localhost:5000/myitems?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyItems(data))
     },[user,myItems])
-    // console.log(myItems);
 
-    // handle delete my item
+    // handle delete myItem
     const deleteMyItem=(id) => {
         const confirmaton = window.confirm("Are You Sure Want To Delete?")
         if (confirmaton) {
@@ -27,19 +29,50 @@ const MyItems = () => {
                 })
         }
         return
-        
     }
     return (
-        <div>
-            <h1 className='section-title'>My Items</h1>
-            <p>data: {myItems.length}</p>
-            {
-                myItems.map(item =>
-                    <div key={item._id}>
-                        <li>{item.name}</li>
-                        <Button onClick={()=>deleteMyItem(item._id)}>Delete</Button>
-                    </div>)
-            }
+        <div className='pb-5'>
+             <h1 className='section-title'> STROED ITEMS</h1>
+            <Container className=''>
+                <Row  xs={1} md={1} lg={2} className="gy-5 w-100 mx-0">
+                    {
+                        myItems.map(bike => 
+                            <Col key={bike?._id} className="d-flex justify-content-center px-0 mx-0 ">
+                                <div className="inventory-card">
+                                    <div className='mb-2'>
+                                        <h2 className='inventory-name'>{bike?.name}</h2>
+                                        <hp>{bike?.title}</hp>
+                                    </div>
+                                    <img src={bike?.picture} className=" img-fluid w-100" height={100} alt="" />
+                                    <div className='my-2'>
+                                        <p className=''>{bike?.describe}</p>
+                                    </div>
+                                    <div className='d-flex justify-content-between align-items-center'>
+                                        <div className='flex-div'>
+                                            <h3>Quantity </h3>
+                                            <span className=''>{bike?.quantity}</span>
+                                        </div>
+                                        <div className='flex-div'>
+                                            <h3>Sold </h3>
+                                            <span className=''>{bike?.sold}</span>
+                                        </div>
+                                        <div className='flex-div'>
+                                            <h3>Price </h3>
+                                            <span className=''>{bike?.price}</span>
+                                        </div>
+                                        <div className='flex-div'>
+                                            <h3>Supplier </h3>
+                                            <span className=''>{bike?.supplier}</span>
+                                        </div>
+                                    </div>
+                                    <div className="text-center">
+                                        <Button className='inventory-btn' onClick={()=>deleteMyItem(bike?._id)}>Delete Item</Button>
+                                    </div>
+                                </div> 
+                            </Col>)
+                    }
+                </Row>
+            </Container>
         </div>
     );
 };

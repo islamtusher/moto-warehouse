@@ -30,10 +30,6 @@
     color: rgb(2, 151, 206);
     margin: 0;
 }
-.form-part textarea{
-    /* height: 200px; */
-    /* padding-bottom: 50px ; */
-}
 .add-btn{
    background-color: rgb(4, 147, 224);
    padding: 10px 40px;
@@ -48,13 +44,9 @@
 @media only screen and (max-width: 768px) {
     .adding-form{
         clip-path: polygon(15% 99%,100% 90%,100% 0,100% 0,0 0,0 95%);
-
     }
     .form-area{
         width: 80%;
-        /* background-color: aliceblue;
-        padding: 40px 0px;
-        margin: 0 auto; */
     }
     .form-contain{
         display: flex;
