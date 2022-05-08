@@ -9,42 +9,40 @@
     background-size:cover;
     background-attachment: fixed;
     position: relative;
-    clip-path: polygon(85% 99%,100% 94%,100% 0,100% 0,0 0,0 88%);
+    clip-path: polygon(83% 100%,100% 91%,100% 0,100% 0,0 0,0 87%);
 }
 .logo{
     color: red;
-    
 }
 .main-title h1{
-    font-size: 40px;
+    font-size: 50px;
     font-family: 'Aclonica', sans-serif;
     color: rgb(255, 255, 255);
 }
 .sub-title h6{
+    margin-bottom: 15px;
     font-family: 'Poppins', sans-serif;
     color: rgb(85, 218, 255);
-}
-.banner-buttons{
-    position: absolute;
-    bottom: 50px;
 }
 
 .common-btn{
     position: relative;
     overflow: hidden;
 
-    padding: 6px 30px;
+    padding: 7px 25px;
     margin: 0 20px;
     font-size: 23px;
     font-family: 'Poppins', sans-serif;
-    color: rgb(255, 255, 255);
-    border-radius: 50px;
-    border: 1px solid rgb(255, 255, 255);
-    background-color:transparent;
+    color: rgb(67, 67, 67);
+    overflow: hidden;
+    border: 0;
+    clip-path: polygon(0 0, 89% 0, 100% 100%, 11% 100%);
+    background-color: transparent;
 }
 .common-btn::before{
     content: "";
-    background-color: rgb(132, 247, 255);
+    clip-path: polygon(0 0, 89% 0, 100% 100%, 11% 100%);;
+    background-color: rgb(31, 166, 250);
     
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -63,11 +61,15 @@
     z-index: 1;
 }
 .common-btn:hover{
-    color: rgb(4, 1, 27);
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
 @media only screen and (max-width: 600px) {
     .banner{
+        clip-path: polygon(79% 100%,100% 94%,100% 0,100% 0,0 0,0 92%);
         padding: 400px 10px;
+    }
+    .main-title h1{
+        font-size: 40px;
     }
 }

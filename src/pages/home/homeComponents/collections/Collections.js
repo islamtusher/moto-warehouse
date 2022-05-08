@@ -12,7 +12,7 @@ const Collections = () => {
     return (
         <div>
             <Container>
-                <h1>Moto Collection</h1>
+                <h1 className='section-title text-start'>MOTO COLLECTION</h1>
                 <Row xs={1} md={2} lg={3} className="gy-5">
                     {
                         bikes.slice(0, 6).map(bike => <SingleCollection
