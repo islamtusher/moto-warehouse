@@ -1,0 +1,17 @@
+.adding-form{
+    background-image: url('../../../public/images/banner2.jpg');
+    height: 86vh;
+    /* padding-bottom: 160px; */
+    /* padding: 0px 0 150px 0; */
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,.7);
+    background-blend-mode: overlay;
+    background-position:center;
+    background-size:cover;
+    background-attachment: fixed;
+    clip-path: polygon(85% 99%,100% 94%,100% 0,100% 0,0 0,0 88%);
+}
+.form-part{
+    /* width: 35%; */
+    margin: 0 auto;
+}

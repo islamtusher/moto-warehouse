@@ -26,6 +26,7 @@ const Header = () => {
                                 user?.email ?
                                     <>
                                         <CustomLink to={'/myitems'}> MyItems</CustomLink>
+                                        <CustomLink to={'/additems'}> AddItems</CustomLink>
                                         <Button onClick={()=>signOut(auth)} className='bg-white py-1 px-2 border-0 ms-3 text-dark'> LogOut </Button>
                                     </>
                                     :
