@@ -2,8 +2,11 @@ import React from 'react';
 
 const PageNotFound = () => {
     return (
-        <div>
-            <h1>Page NOt found</h1>
+        <div className='d-flex justify-content-center align-items-center mt-5'>
+            <div>
+                <h1>Page NOt found</h1>
+                <img src="./images/notfound.jpg" alt="" />
+            </div>
         </div>
     );
 };

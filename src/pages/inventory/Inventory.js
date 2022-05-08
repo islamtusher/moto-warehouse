@@ -69,7 +69,7 @@ const Inventory = () => {
         <Container className='inventory-page '>
             <h1 className='section-title'>INVENTORY</h1>
             <Row xs={1} md={2}  className='gy-5 w-100 '>
-                <Col className="stock-review p-0 ">
+                {/* <Col className="stock-review p-0 ">
                     <div className='inventory-name'>
                         <h2>{name}</h2>
                         <h6>{title}</h6>
@@ -97,11 +97,44 @@ const Inventory = () => {
                         </div>
                     </div>
                     <button onClick={()=>handleUpDateQuantity(quantity, sold)} className='mt-2' type="submit">Delivared</button>
+                </Col> */}
+                <Col className="d-flex justify-content-center px-0 mx-0 ">
+                    <div className="inventory-card">
+                        <div className='mb-2'>
+                            <h2 className='inventory-name'>{name}</h2>
+                            <hp>{title}</hp>
+                        </div>
+                        <img src={picture} className=" img-fluid w-100" height={100} alt="" />
+                        <div className='my-2'>
+                            <p className=''>{describe}</p>
+                        </div>
+                        <div className='d-flex justify-content-between align-items-center'>
+                            <div className='flex-div'>
+                                <h3>Quantity </h3>
+                                <span className=''>{quantity}</span>
+                            </div>
+                            <div className='flex-div'>
+                                <h3>Sold </h3>
+                                <span className=''>{sold}</span>
+                            </div>
+                            <div className='flex-div'>
+                                <h3>Price </h3>
+                                <span className=''>{price}</span>
+                            </div>
+                            <div className='flex-div'>
+                                <h3>Supplier </h3>
+                                <span className=''>{supplier}</span>
+                            </div>
+                        </div>
+                        <div className="text-center">
+                            <Button onClick={()=>handleUpDateQuantity(quantity, sold)} className='mt-2' type="submit">Delivared</Button>
+                        </div>
+                    </div> 
                 </Col>
-                <Col className='p-0 '>
+                <Col className='p-0 d-flex justify-content-center align-items-center'>
                     <Form onSubmit={handleRestock} className='inventory-form '>
-                        <input type="text" name='quantity' placeholder='Push Stock' />
-                        <Button type='submit'> Restock</Button>
+                        <input className='py-2 mb-4' type="text" name='quantity' placeholder='Push Stock' />
+                        <Button className='' type='submit'> Restock</Button>
                     </Form>
                 </Col>
             </Row>
