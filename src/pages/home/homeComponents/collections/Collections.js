@@ -21,7 +21,9 @@ const Collections = () => {
                             </SingleCollection>)
                     }
                 </Row>
-                <Button onClick={()=>navigate('/manageInventory')}>Manage Inventory</Button>
+                <div className="my-5 text-center">
+                    <Button onClick={()=>navigate('/manageInventory')} className="py-2 fs-4">MANAGE INVENTORY</Button>
+                </div>
             </Container>
             
         </div>

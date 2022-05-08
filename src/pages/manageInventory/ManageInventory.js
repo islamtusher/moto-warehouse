@@ -34,7 +34,7 @@ const ManageInventory = () => {
         <div>
             <h1 className='section-title'>MANAGE INVENTORY</h1>
             <Container>
-                <Button onClick={()=>navigate('/myitems')}>Add Item</Button>
+                <Button onClick={()=>navigate('/additems')}>Add Item</Button>
                 <Row  xs={1} md={2} lg={3} className="gy-5 w-100 m-0">
                     {
                         bikes.map(bike => 

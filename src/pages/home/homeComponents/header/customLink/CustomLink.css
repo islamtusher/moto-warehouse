@@ -2,11 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 .link{
     font-size: 18px;
-    margin-left: 30px;
+    margin-left: 20px;
     text-decoration: none;
     color: rgb(49, 44, 44);
-    font-weight: bolder;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-family: 'Poppins', sans-serif;
 }
 .link:hover{
