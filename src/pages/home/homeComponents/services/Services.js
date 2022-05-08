@@ -8,7 +8,7 @@ const Services = () => {
     return (
         <div>
             <Container>
-                <h1 className='section-title text-center text-lg-end'>OUR SERVICES</h1>
+                <h1 className='section-title text-center text-lg-end mt-0'>OUR SERVICES</h1>
                 <Row  xs={1} md={1} lg={2} className="gy-5 w-100 m-0">
                     <Col className='p-0'>
                         <div className='service-cart'>

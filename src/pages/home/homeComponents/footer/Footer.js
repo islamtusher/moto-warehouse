@@ -11,8 +11,8 @@ const Footer = () => {
     return (
         <div>
             <div className='titles'>
+                <h1 className='section-title mb-0'>GET IN CLOSE</h1>
                 <p className='section-sub-title'>FELL FREE TO CONTACT</p>
-                <h1 className='section-title'>GET IN CLOSE</h1>
             </div>
             <div className='footer mt-5'>
                 <Container>

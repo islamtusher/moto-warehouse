@@ -14,7 +14,9 @@ const MyItems = () => {
             .then(res => res.json())
             .then(data => setMyItems(data))
     },[user,myItems])
-
+    if (myItems.length === 0) {
+        return  <Loading></Loading>
+    } 
     // handle delete myItem
     const deleteMyItem=(id) => {
         const confirmaton = window.confirm("Are You Sure Want To Delete?")

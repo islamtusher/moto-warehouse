@@ -17,7 +17,7 @@ const Header = () => {
                     <Navbar.Toggle className='bg-light' aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav ">
                         <Nav className="ms-auto d-flex align-items-center p-0">
-                            {user?.email && <p className='text-warning m-0'>{user?.email}</p>}
+                            {user?.email && <p className='text-dark m-0'>{user?.email}</p>}
                             <CustomLink to={'/'}> Home</CustomLink>
                             {/* <CustomLink to={'/inventory'}> Inventory</CustomLink> */}
                             <CustomLink to={'/blogs'}> Blogs</CustomLink>

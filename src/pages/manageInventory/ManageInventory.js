@@ -7,12 +7,16 @@ import useBikes from '../../customHooks/useBikes';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseConfig';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../loading/Loading';
 
 const ManageInventory = () => {
-    const [user] = useAuthState(auth)
+    const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate()
     const [bikes] = useBikes()
 
+    if (loading || bikes.length === 0) {
+      return  <Loading></Loading>
+    } 
     // handle item delete from DB
     const handleDeleteItem = (id) => {
         const confirmaton = window.confirm("Are You Sure To Delete")
@@ -31,7 +35,7 @@ const ManageInventory = () => {
 
     
     return (
-        <div>
+        <div className=''>
             <h1 className='section-title'>MANAGE INVENTORY</h1>
             <Container>
                 <Button onClick={()=>navigate('/additems')}>Add Item</Button>
