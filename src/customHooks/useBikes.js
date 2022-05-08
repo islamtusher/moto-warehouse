@@ -8,7 +8,7 @@ const useBikes = () => {
             .then(res => res.json())
             .then(data => setBikes(data))
         
-    }, [])
+    }, [bikes])
     return [bikes]
 }
 export default useBikes;

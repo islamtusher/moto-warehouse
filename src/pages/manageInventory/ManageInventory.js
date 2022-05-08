@@ -8,16 +8,24 @@ const ManageInventory = () => {
     const [bikes] = useBikes()
     
     const handleDeleteItem = (id) => {
-        fetch(`http://localhost:5000/bike/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
+        const confirmaton = window.confirm("Are You Sure To Delete")
+        if (confirmaton) {
+            fetch(`http://localhost:5000/bike/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    alert('One Item Deleted')
+                })
+        }
+        return
     }
     return (
         <div>
             <h1 className='section-title'>MANAGE INVENTORY</h1>
             <Container>
+                <Button>Add Item</Button>
                 <Row  xs={1} md={2} lg={3} className="gy-5 w-100 m-0">
                     {
                         bikes.map(bike => 
@@ -36,7 +44,7 @@ const ManageInventory = () => {
                                                 {bike.quantity}
                                             </p>
                                         </div>
-                                        <Button onClick={()=>handleDeleteItem(bike._id)}  className='bg-danger mt-3'><FontAwesomeIcon className='me-2' icon={faDeleteLeft} />Delete</Button>
+                                        <Button onClick={()=>handleDeleteItem(bike._id)}  className='bg-danger mt-3 fs-5'><FontAwesomeIcon className='me-2' icon={faDeleteLeft} />Delete</Button>
                                     </div>
                                 </div>
                             </Col>)
