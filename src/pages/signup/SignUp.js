@@ -84,7 +84,8 @@ const SignUp = () => {
     }, [googleSigninError, userCreateError])
 
     return (
-        <div id='signup' className=' user-form'>
+        <div className="login-page">
+            <div id='signup' className=' user-form'>
             <Form onSubmit={signInFormHandle}>
                 <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label className='text-light mb-0'>Name</Form.Label>
@@ -110,7 +111,7 @@ const SignUp = () => {
                 </div>
                 
             </Form>
-            <div className='d-flex justify-content-evenly align-items-center text-light'>
+            <div className='d-flex justify-content-evenly align-items-center text-dark'>
                 <hr className='line' />
                 <p>Or</p>
                 <hr className=' line' />
@@ -120,6 +121,7 @@ const SignUp = () => {
                     Google SignIn
                 </Button>
             </div>
+        </div>
         </div>
     );
 };

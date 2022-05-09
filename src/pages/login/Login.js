@@ -1,5 +1,6 @@
 // import axios from 'axios';
 
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import {useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth';
@@ -15,7 +16,7 @@ const Login = () => {
     const [user] = useAuthState(auth)
     const navigate = useNavigate()
     const location = useLocation()
-    console.log(user);
+    // console.log(user);
     let from = location.state?.from?.pathname || "/";
 
     // react firebase hooks
@@ -42,17 +43,16 @@ const Login = () => {
         const value = e.target.value
         setUserInfo({ ...userInfo, password: value })
     }
-    // heroku password
-    // "(b!"h4C-`Rp.-d
 
     // login with email and pass
-    const emailAndPasswordLogin =(event) => {
+    const emailAndPasswordLogin =async(event) => {
         event.preventDefault()
         signInWithEmailAndPassword(userInfo?.email, userInfo?.password)
-        // console.log(user);
-        // const { data } = await axios.post('https://fathomless-peak-78193.herokuapp.com/login',{email:  userInfo.email})
-        // localStorage.setItem('accessToken', data?.token)
-        // navigate(from, { replace: true })
+        const { data } = await axios.post('https://mysterious-basin-75687.herokuapp.com/login', { email: userInfo?.email })
+        localStorage.setItem('accessToken', data?.accessToken)
+        navigate(from, { replace: true })
+        console.log(data);
+
     }
 
     // login hooks error handling
@@ -81,41 +81,43 @@ const Login = () => {
     }, [googleSigninError, emailSigninError])
 
     return (
-        <div id='login' className='user-form'>
-            <Form onSubmit={emailAndPasswordLogin}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label className='text-light mb-0'>Email</Form.Label>
-                    <Form.Control onChange={getUserEmail} className='' name='email' placeholder='Email' type="email"  />
-                    <Form.Text className="text-muted">
-                        {userError.emailError && <p className='error'>{userError.emailError}</p>}
-                    </Form.Text>
-                </Form.Group>
+        <div className="login-page">
+            <div id='login' className='user-form'>
+                <Form onSubmit={emailAndPasswordLogin}>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label className='text-dark mb-0'>Email</Form.Label>
+                        <Form.Control onChange={getUserEmail} className='' name='email' placeholder='Email' type="email"  />
+                        <Form.Text className="text-muted">
+                            {userError.emailError && <p className='error'>{userError.emailError}</p>}
+                        </Form.Text>
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label className='text-light mb-0'>Password</Form.Label>
-                    <Form.Control onChange={getUserPassword} type="password" name='password' placeholder='Password'  autoComplete='false' />
-                    <Form.Text className="text-muted">
-                        {userError.passwordError && <p className='error'>{userError.passwordError}</p>}
-                    </Form.Text>
-                </Form.Group>
-                    
-                <div className='text-center mb-3'>
-                    <Button  className='submit-btn' type="submit"> Login </Button>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label className='text-dark mb-0'>Password</Form.Label>
+                        <Form.Control onChange={getUserPassword} type="password" name='password' placeholder='Password'  autoComplete='false' />
+                        <Form.Text className="text-muted">
+                            {userError.passwordError && <p className='error'>{userError.passwordError}</p>}
+                        </Form.Text>
+                    </Form.Group>
+                        
+                    <div className='text-center mb-3'>
+                        <Button  className='submit-btn' type="submit"> Login </Button>
+                    </div>
+                    <p onClick={()=>sendPasswordResetEmail(userInfo.email)} className='pass-reset'>Forget Password?</p>
+                </Form>
+                
+                <div className='d-flex justify-content-evenly align-items-center text-dark'>
+                    <hr className='line' />
+                    <p>Or</p>
+                    <hr className=' line' />
                 </div>
-                <p onClick={()=>sendPasswordResetEmail(userInfo.email)} className='text-white'>Forget Password?</p>
-            </Form>
-            
-            <div className='d-flex justify-content-evenly align-items-center text-light'>
-                <hr className='line' />
-                <p>Or</p>
-                <hr className=' line' />
+                <div className="text-center">
+                    <Button onClick={()=>signInWithGoogle()} className='w-100' variant="primary" type="submit">
+                        Google SignIn
+                    </Button>
+                </div>
             </div>
-            <div className="text-center">
-                <Button onClick={()=>signInWithGoogle()} className='w-100' variant="primary" type="submit">
-                    Google SignIn
-                </Button>
-            </div>
-    </div>
+        </div>
     );
 };
 

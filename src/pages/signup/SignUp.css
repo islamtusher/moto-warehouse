@@ -1,10 +1,29 @@
+.login-page{
+    background-image: url("../../../public/images/banner2.jpg");
+    padding: 100px 0px 130px 0;
+    background-color: rgba(0,0,0,.4);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:cover;
+    clip-path: polygon(15% 99%,100% 85%,100% 0,100% 0,0 0,0 90%);
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+}
+.user-form input{
+    border: none;
+    border-bottom: 1px solid rgb(189, 189, 189);
+    border-radius: 3px;
+    background-color: rgb(240, 240, 240);
+}
 .user-form{
     width: 340px;
-    margin: 0 auto;
+    margin: 0 0 0 200px ;
     margin-top: 70px;
     padding: 35px 20px;
-    background-color: #13232f;
-    border: 1px solid black;
+    background-color: rgb(255, 255, 255);
+    /* border: 1px solid black; */
+    /* box-shadow: 1px 1px 20px rgb(196, 196, 196); */
     border-radius: 10px;
 }
 .user-form .submit-btn{
@@ -16,6 +35,10 @@
 .user-form .submit-btn:hover{
     background: linear-gradient(90deg,  rgba(0, 21, 38, 0.971) 0%, rgba(2,0,36,1) 100%);
 }
+.pass-reset{
+    color: rgb(4, 4, 89);
+    cursor: pointer;
+}
 .error{
     color: rgb(252, 66, 25);
     font-size: 20px;
@@ -24,12 +47,17 @@
     width: 35%;
     padding: 1px 0;
 }
+@media screen and (min-width: 1020) {
+    .user-form{
+        margin: 0 auto;
+    }
+}
 
-.user-form input[type="text"],
+/* .user-form input[type="text"],
 .user-form input[type="email"],
 .user-form input[type="password"] {
   display: block;
-  background-color: #13232f;
+  background-color: #0782e1;
   color: rgb(255, 142, 43);
   box-sizing: border-box;
   margin-bottom: 20px;
@@ -38,22 +66,22 @@
   border-bottom: 1px solid #AAA;
   font-family: 'Roboto', sans-serif;
   transition: 0.2s ease;
-}
-.user-form input:-webkit-autofill,
+} */
+/* .user-form input:-webkit-autofill,
 .user-form input:-webkit-autofill:hover, 
 .user-form input:-webkit-autofill:focus, 
 .user-form input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px #13232f inset !important;
-    -webkit-text-fill-color: rgb(255, 142, 43) !important;
-}
-.user-form input[type="text"]:focus,
+    -webkit-box-shadow: 0 0 0 30px #0782e1 inset !important;
+    -webkit-text-fill-color: rgb(0, 0, 0) !important;
+} */
+/* .user-form input[type="text"]:focus,
 .user-form input[type="text"]:active,
 .user-form input[type="email"]:focus,
 .user-form input[type="password"]:focus {
     box-shadow: none;
-    background-color: #13232f;
+    background-color: #0782e1;
     border: none;
     border-bottom: 2px solid #25ebc3;
-    color: #25ebc3;
+    color: #0c023e;
     transition: 0.2s ease;
-}
+} */
