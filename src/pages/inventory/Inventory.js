@@ -15,7 +15,7 @@ const Inventory = () => {
         fetch(`https://mysterious-basin-75687.herokuapp.com/bike/${id}`)
             .then(res => res.json())
             .then(data => setbike(data))
-    }, [id, newQuantity, bike])
+    }, [id, newQuantity])
 
     if (bike.name === undefined) {
         return  <Loading></Loading>
