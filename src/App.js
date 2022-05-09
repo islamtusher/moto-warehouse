@@ -12,6 +12,7 @@ import ManageInventory from './pages/manageInventory/ManageInventory';
 import MyItems from './pages/myItems/MyItems';
 import AddItems from './pages/addItems/AddItems';
 import Blogs from './pages/blogs/Blogs';
+import Collections from './pages/home/homeComponents/collections/Collections';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/home/collection' element={<Collections></Collections>}></Route>
         <Route path='/inventory/:id' element={
           <RequireAuth>
             <Inventory></Inventory>

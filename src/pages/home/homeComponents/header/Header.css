@@ -9,3 +9,7 @@
     color: rgb(49, 44, 44);
     text-decoration: none;
 }
+.user-img{
+    border-radius: 50%;
+    width: 50px;
+}

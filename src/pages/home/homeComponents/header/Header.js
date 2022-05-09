@@ -3,12 +3,14 @@ import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import CustomLink from '../../../../customLink/CustomLink';
 import auth from '../../../../firebaseConfig';
-import CustomLink from './customLink/CustomLink';
 import './Header.css'
 
 const Header = () => {
     const [user] = useAuthState(auth)
+    const email = user?.email.split("@")[0]
+    
     return (
         <div>
             <Navbar className='nav-contain' fixed="top" expand="lg">
@@ -17,9 +19,9 @@ const Header = () => {
                     <Navbar.Toggle className='bg-light' aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav ">
                         <Nav className="ms-auto d-flex align-items-center p-0">
-                            {user?.email && <p className='text-dark m-0'>{user?.email}</p>}
+                            {user && user.photoURL ? <img className='user-img' src={user?.photoURL} alt=""/> : <p className='text-dark m-0'>{email}</p>  }
                             <CustomLink to={'/'}> Home</CustomLink>
-                            {/* <CustomLink to={'/inventory'}> Inventory</CustomLink> */}
+                            <CustomLink to={'/home/collection'}> Collection</CustomLink>
                             <CustomLink to={'/blogs'}> Blogs</CustomLink>
                             <CustomLink to={'/contact'}> Contact</CustomLink>
                             {

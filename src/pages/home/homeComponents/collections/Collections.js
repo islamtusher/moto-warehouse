@@ -12,10 +12,13 @@ const Collections = () => {
     // console.log(bikes);
     if (bikes.length === 0) {
         return  <Loading></Loading>
-      } 
+    } 
     return (
         <div>
             <Container>
+            {/* {
+               bikes.length === 0 && <Loading></Loading>
+            }  */}
                 <h1 className='section-title text-center text-lg-start mt-0'>MOTO COLLECTION</h1>
                 <Row xs={1} md={2} lg={3} className="gy-5">
                     {

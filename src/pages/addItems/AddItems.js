@@ -22,7 +22,7 @@ const AddItems = () => {
             return
         }
 
-        fetch('http://localhost:5000/bikes', {
+        fetch('https://mysterious-basin-75687.herokuapp.com/bikes', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'

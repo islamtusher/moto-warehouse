@@ -1,7 +1,7 @@
 [
     {
       
-      "picture": "/images/bike1.png",
+      "picture": "https://i.ibb.co/RYc7bB6/bike1.png",
       "name": "BMW T9034 RX",
       "title": "SPORTINESS AT MAXIMUM POWER",
       "price": "480000",
@@ -12,7 +12,7 @@
     },
     {
       
-      "picture": "/images/bike2.png",
+      "picture": "https://i.ibb.co/r46rwG3/bike2.png",
       "name": "YAMAHA MT-10",
       "title": "AGGRESSIVE NEW LOOK",
       "price": "680000",
@@ -23,7 +23,7 @@
     },
     {
       
-      "picture": "/images/bike3.png",
+      "picture": "https://i.ibb.co/MCnX6Z5/bike3.png",
       "name": "HONDA CB500X ABS",
       "title": "THE DARKEST ENERGY",
       "price": "580000",
@@ -34,7 +34,7 @@
     },
     {
       
-      "picture": "/images/bike4.png",
+      "picture": "https://i.ibb.co/4jvDW4v/bike4.png",
       "name": "KAWASAKI VULCAN",
       "title": "THE EXHILARATING RIDE",
       "price": "520000",
@@ -45,7 +45,7 @@
     },
     {
       
-      "picture": "/images/bike5.png",
+      "picture": "https://i.ibb.co/vz210H3/bike5.png",
       "name": "KTM RC 390 BASE",
       "title": "THE HIGN PERFORMER",
       "price": "480000",
@@ -56,7 +56,7 @@
     },
     {
       
-      "picture": "/images/bike6.png",
+      "picture": "https://i.ibb.co/q7Vkk7X/bike6.png",
       "name": "DUCATI HYPER 950",
       "title": "THE SPORTS BIKE",
       "price": "1430000",
@@ -67,7 +67,7 @@
     },
     {
       
-      "picture": "/images/bike7.png",
+      "picture": "https://i.ibb.co/tqxTpj1/bike7.png",
       "name": "KAWASAKI VULCAN 900",
       "price": "800000",
       "describe": "Kawasaki Vulcan S is a cruiser bike, Powered by a 649cc Ninja®-derived engine, delivers potent power with ample low- to mid-range torque for an exhilarating ride",
@@ -77,7 +77,7 @@
     },
     {
       
-      "picture": "/images/bike8.png",
+      "picture": "https://i.ibb.co/F5HcWpf/bike8.png",
       "name": "KAWASAKI Z900RS CAFE",
       "titile": "THE RETRO REVOLUTION",
       "price": "480000",
@@ -88,7 +88,7 @@
     },
     {
       
-      "picture": "/images/bike9.png",
+      "picture": "https://i.ibb.co/pXw89v4/bike9.png",
       "name": "ZONTES ZT155-G1",
       "titile": "COMPACT AND GOTGEOUS",
       "price": "480000",

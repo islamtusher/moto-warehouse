@@ -12,7 +12,7 @@ const Inventory = () => {
     // console.log(bike);
     //load single data by id
     useEffect(() => {
-        fetch(`http://localhost:5000/bike/${id}`)
+        fetch(`https://mysterious-basin-75687.herokuapp.com/bike/${id}`)
             .then(res => res.json())
             .then(data => setbike(data))
     }, [id, newQuantity, bike])
@@ -32,7 +32,7 @@ const Inventory = () => {
         const upDatedQuantity = { newQuantity }
         setUpDatedQuantity(upDatedQuantity)
 
-        fetch(`http://localhost:5000/bike/${id}`, {
+        fetch(`https://mysterious-basin-75687.herokuapp.com/bike/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const Inventory = () => {
             const upDatedQuantity = {newQuantity}
             setUpDatedQuantity(newQuantity)
 
-            fetch(`http://localhost:5000/bike/${id}`, {
+            fetch(`https://mysterious-basin-75687.herokuapp.com/bike/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
