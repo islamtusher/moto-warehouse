@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebaseConfig';
 import Loading from '../loading/Loading';
 
 const MyItems = () => {
     const [user] = useAuthState(auth)
     const [myItems, setMyItems] = useState([])
+    const navigate = useNavigate()
     const [loading, setLoading] = useState(true)
+
     // load myItems by filter email
     useEffect(() => {
-        // if (myItems.length === 0) {
-        //     setLoading(true)
-        // }
-        fetch(`https://mysterious-basin-75687.herokuapp.com/myitems?email=${user?.email}`, {
+        fetch(`https://mysterious-basin-75687.herokuapp.com/myitems?email=${user?.email}`,{
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
-            .then(res => res.json())
-            .then(data => setMyItems(data))
+        .then(res => res.json())
+        .then(data => {
+            setMyItems(data)
+            setLoading(false)
+        })
+            
     }, [user, myItems])
-    // console.log(''myItems);
-
     
     // handle delete myItem
     const deleteMyItem=(id) => {
@@ -33,7 +35,6 @@ const MyItems = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
                     alert('Your Item Deleted')
                 })
         }
@@ -41,11 +42,19 @@ const MyItems = () => {
     }
     return (
         <div className='pb-5'>
-             <h1 className='section-title'> STROED ITEMS</h1>
+            <h1 className='section-title'> STROED ITEMS</h1>
+            {
+                loading && <div className='d-flex justify-content-center align-items-center'><Loading></Loading></div>
+            }
+            {   myItems?.length === 0 && !loading ?
+                    <div className="text-center">
+                        <h5 className='section-sub-title'>You Dont Have Any items</h5>
+                        <Button onClick={()=>navigate('/additems')}>Add Item</Button>   
+                    </div>
+                    :
+                    <></>
+            }
             <Container className=''>
-                {/* {
-                    loading && <Loading ></Loading> 
-                } */}
                 <Row  xs={1} md={1} lg={2} className="gy-5 w-100 mx-0">
                     {
                         myItems.map(bike => 
@@ -60,7 +69,7 @@ const MyItems = () => {
                                         <p className=''>{bike?.describe}</p>
                                     </div>
                                     <div className='d-flex justify-content-between align-items-center'>
-                                        <div className='flex-div'>
+                                        <div className=''>
                                             <h3>Quantity </h3>
                                             <span className=''>{bike?.quantity}</span>
                                         </div>

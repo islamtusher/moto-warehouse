@@ -4,7 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 const Category = () => {
     return (
-        <div>
+        <div id='categorys'>
             <h1 className='section-title'>MOTO CATEGORY</h1>
             <div className="category-section">
                 <Container >

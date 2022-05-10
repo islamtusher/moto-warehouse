@@ -15,7 +15,8 @@ const ManageInventory = () => {
     const [bikes] = useBikes()
 
     if (loading || bikes.length === 0) {
-      return  <Loading></Loading>
+      return <div style={{ 'height': '700px'}} className='d-flex justify-content-center align-items-center'><Loading></Loading></div>
+
     } 
     // handle item delete from DB
     const handleDeleteItem = (id) => {
@@ -33,7 +34,6 @@ const ManageInventory = () => {
         return
     }
 
-    
     return (
         <div className=''>
             <h1 className='section-title'>MANAGE INVENTORY</h1>

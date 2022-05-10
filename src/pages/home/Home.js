@@ -12,10 +12,10 @@ import Services from './homeComponents/services/Services';
 const Home = () => {
     const [user, loading, error] = useAuthState(auth);
     if (loading) {
-      return  <Loading></Loading>
+      return  <div style={{ 'height': '700px'}} className='d-flex justify-content-center align-items-center'><Loading></Loading></div>
     } 
     return (
-        <div>
+        <div id='home'>
             <Banner></Banner>
             <Collections></Collections>
             <Category></Category>

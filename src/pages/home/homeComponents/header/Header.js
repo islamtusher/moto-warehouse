@@ -20,10 +20,10 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav ">
                         <Nav className="ms-auto d-flex align-items-center p-0">
                             {user && user.photoURL ? <img className='user-img' src={user?.photoURL} alt=""/> : <p className='text-dark m-0'>{email}</p>  }
-                            <CustomLink to={'/'}> Home</CustomLink>
-                            <CustomLink to={'/home/collection'}> Collection</CustomLink>
+                            <CustomLink to={'#home'}> Home</CustomLink>
+                            <CustomLink to={'/home#collections'}> Collection</CustomLink>
                             <CustomLink to={'/blogs'}> Blogs</CustomLink>
-                            <CustomLink to={'/contact'}> Contact</CustomLink>
+                            <CustomLink to={'/home#contact'}> Contact</CustomLink>
                             {
                                 user?.email ?
                                     <>

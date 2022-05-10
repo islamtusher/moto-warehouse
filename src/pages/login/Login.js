@@ -7,11 +7,12 @@ import {useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, 
 import { useLocation, useNavigate } from 'react-router-dom';
 import useJwtToken from '../../customHooks/useJwtToken';
 import auth from '../../firebaseConfig';
+import Loading from '../loading/Loading';
 
 
 const Login = () => {
     // loged-In User
-    const [user] = useAuthState(auth)
+    const [user, loading] = useAuthState(auth)
 
     // Custom Hook - get token
     const [token] = useJwtToken(user)
@@ -81,42 +82,49 @@ const Login = () => {
 
     return (
         <div className="login-page">
-            <div id='login' className='user-form'>
-                <Form onSubmit={emailAndPasswordLogin}>
-                    {/* email input*/}
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label className='text-dark mb-0'>Email</Form.Label>
-                        <Form.Control onChange={getUserEmail} className='' name='email' placeholder='Email' type="email"  />
-                        <Form.Text className="text-muted">
-                            {userError.emailError && <p className='error'>{userError.emailError}</p>}
-                        </Form.Text>
-                    </Form.Group>
-                    {/* Password input*/}
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label className='text-dark mb-0'>Password</Form.Label>
-                        <Form.Control onChange={getUserPassword}  type="password" name='password' placeholder='Password'  autoComplete='false' />
-                        <Form.Text className="text-muted">
-                            {userError.passwordError && <p className='error'>{userError.passwordError}</p>}
-                        </Form.Text>
-                    </Form.Group>
-                        
-                    <div className='text-center mb-3'>
-                        <Button  className='submit-btn' type="submit"> Login </Button>
+            {
+            loading ?
+                <div style={{ 'height': '700px' }} className='d-flex justify-content-center align-items-center'>
+                    <Loading></Loading>
+                </div>
+                :
+                <div id='login' className='user-form'>
+                    <Form onSubmit={emailAndPasswordLogin}>
+                        {/* email input*/}
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label className='text-dark mb-0'>Email</Form.Label>
+                            <Form.Control onChange={getUserEmail} className='' name='email' placeholder='Email' type="email"  />
+                            <Form.Text className="text-muted">
+                                {userError.emailError && <p className='error'>{userError.emailError}</p>}
+                            </Form.Text>
+                        </Form.Group>
+                        {/* Password input*/}
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label className='text-dark mb-0'>Password</Form.Label>
+                            <Form.Control onChange={getUserPassword}  type="password" name='password' placeholder='Password'  autoComplete='false' />
+                            <Form.Text className="text-muted">
+                                {userError.passwordError && <p className='error'>{userError.passwordError}</p>}
+                            </Form.Text>
+                        </Form.Group>
+                            
+                        <div className='text-center mb-3'>
+                            <Button  className='submit-btn' type="submit"> Login </Button>
+                        </div>
+                        <p onClick={()=>sendPasswordResetEmail(userInfo.email)} className='pass-reset'>Forget Password?</p>
+                    </Form>
+                    
+                    <div className='d-flex justify-content-evenly align-items-center text-dark'>
+                        <hr className='line' />
+                        <p>Or</p>
+                        <hr className=' line' />
                     </div>
-                    <p onClick={()=>sendPasswordResetEmail(userInfo.email)} className='pass-reset'>Forget Password?</p>
-                </Form>
-                
-                <div className='d-flex justify-content-evenly align-items-center text-dark'>
-                    <hr className='line' />
-                    <p>Or</p>
-                    <hr className=' line' />
+                    <div className="text-center">
+                        <Button onClick={()=>signInWithGoogle()} className='w-100' variant="primary" type="submit">
+                            Google SignIn
+                        </Button>
+                    </div>
                 </div>
-                <div className="text-center">
-                    <Button onClick={()=>signInWithGoogle()} className='w-100' variant="primary" type="submit">
-                        Google SignIn
-                    </Button>
-                </div>
-            </div>
+            }
         </div>
     );
 };

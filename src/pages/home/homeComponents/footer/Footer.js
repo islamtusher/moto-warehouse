@@ -9,7 +9,7 @@ import { faAddressBook, faAddressCard } from '@fortawesome/free-regular-svg-icon
 
 const Footer = () => {
     return (
-        <div>
+        <div id="contact">
             <div className='titles'>
                 <h1 className='section-title mb-0'>GET IN CLOSE</h1>
                 <p className='section-sub-title'>FELL FREE TO CONTACT</p>
@@ -34,8 +34,8 @@ const Footer = () => {
                                     <Navbar.Collapse className='pages'>
                                         <Nav.Link className='footer-page' as={HashLink} to="/home#home">Home</Nav.Link>
                                         <Nav.Link className='footer-page' as={HashLink} to="/home#services">Services</Nav.Link>
-                                        <Nav.Link className='footer-page' as={HashLink} to="/home#categoris">Categoris</Nav.Link>
-                                        <Nav.Link className='footer-page' as={HashLink} to="/home#collection">Collection</Nav.Link>
+                                        <Nav.Link className='footer-page' as={HashLink} to="/home#categorys">Categorys</Nav.Link>
+                                        <Nav.Link className='footer-page' as={HashLink} to="/home#collections">Collection</Nav.Link>
                                         <Nav.Link className='footer-page' as={HashLink} to="/blogs">Blogs</Nav.Link>
                                         <Nav.Link className='footer-page' as={HashLink} to="/signup">Sign Up</Nav.Link>
                                         <Nav.Link className='footer-page' as={HashLink} to="/login">Log In</Nav.Link>

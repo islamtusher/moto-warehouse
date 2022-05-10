@@ -5,9 +5,10 @@ import {useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle} fr
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebaseConfig';
 import useJwtToken from '../../customHooks/useJwtToken';
+import Loading from '../loading/Loading';
 
 const SignUp = () => {
-    const [user] = useAuthState(auth)
+    const [user, loading] = useAuthState(auth)
     const [token] = useJwtToken(user)
 
     const [userInfo, setUserInfo] = useState({name:"", email: "", password: ""})
@@ -90,6 +91,12 @@ const SignUp = () => {
 
     return (
         <div className="login-page">
+            {
+                loading &&
+                    <div style={{ 'height': '700px' }} className='d-flex justify-content-center align-items-center'>
+                        <Loading></Loading>
+                    </div>
+            } 
             <div id='signup' className=' user-form'>
             <Form onSubmit={signUpFormHandle}>
                 <Form.Group className="mb-3" controlId="formBasicText">
