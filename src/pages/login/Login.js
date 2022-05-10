@@ -5,32 +5,39 @@ import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import {useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useJwtToken from '../../customHooks/useJwtToken';
 import auth from '../../firebaseConfig';
 
 
 const Login = () => {
-    // userInfo and user create error
+    // loged-In User
+    const [user] = useAuthState(auth)
+
+    // Custom Hook - get token
+    const [token] = useJwtToken(user)
+
+    // userInfo and user created error // form inputs
     const [userInfo, setUserInfo] = useState({ name: "", email: "", password: "" })
     const [userError, setUserError] = useState({ emailError: '', passwordError: '' })
     
-    const [user] = useAuthState(auth)
+    // user location
     const navigate = useNavigate()
     const location = useLocation()
-    // console.log(user);
     let from = location.state?.from?.pathname || "/";
 
-    // react firebase hooks
+    // react firebase hooks // Sign-In and Sign-UP 
     const [signInWithGoogle, , , googleSigninError] = useSignInWithGoogle(auth)
     const [signInWithEmailAndPassword, , ,emailSigninError] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(
         auth
-      );
+    );
+    
     // redirect page
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate(from, { replace: true })
         }
-    }, [user])
+    }, [user, token])
 
     // get email
     const getUserEmail= (e) => {
@@ -45,14 +52,9 @@ const Login = () => {
     }
 
     // login with email and pass
-    const emailAndPasswordLogin =async(event) => {
+    const emailAndPasswordLogin = async(event) => {
         event.preventDefault()
         signInWithEmailAndPassword(userInfo?.email, userInfo?.password)
-        const { data } = await axios.post('https://mysterious-basin-75687.herokuapp.com/login', { email: userInfo?.email })
-        localStorage.setItem('accessToken', data?.accessToken)
-        navigate(from, { replace: true })
-        console.log(data);
-
     }
 
     // login hooks error handling

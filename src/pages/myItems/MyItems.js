@@ -7,9 +7,12 @@ import Loading from '../loading/Loading';
 const MyItems = () => {
     const [user] = useAuthState(auth)
     const [myItems, setMyItems] = useState([])
-
+    const [loading, setLoading] = useState(true)
     // load myItems by filter email
     useEffect(() => {
+        // if (myItems.length === 0) {
+        //     setLoading(true)
+        // }
         fetch(`https://mysterious-basin-75687.herokuapp.com/myitems?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -18,6 +21,8 @@ const MyItems = () => {
             .then(res => res.json())
             .then(data => setMyItems(data))
     }, [user, myItems])
+    // console.log(''myItems);
+
     
     // handle delete myItem
     const deleteMyItem=(id) => {
@@ -38,6 +43,9 @@ const MyItems = () => {
         <div className='pb-5'>
              <h1 className='section-title'> STROED ITEMS</h1>
             <Container className=''>
+                {/* {
+                    loading && <Loading ></Loading> 
+                } */}
                 <Row  xs={1} md={1} lg={2} className="gy-5 w-100 mx-0">
                     {
                         myItems.map(bike => 

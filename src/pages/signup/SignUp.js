@@ -26,15 +26,16 @@ const SignUp = () => {
         }
     }, [user])
 
-    // onChange input-valu ecess
+    // onChange input-valu aecess
     // name
     const getUserName = (e) => {
         const value = e.target.value
         setUserInfo({...userInfo, name:value})
     }
-    // email and validation
+    // email 
     const getUserEmail = (e) => {
         const value = e.target.value
+        // validation
         if (/\S+@\S+\.\S+/.test(value)) {
             setUserInfo({ ...userInfo, email: value })
             setUserError({ ...userError, emailError: "" })
@@ -43,6 +44,7 @@ const SignUp = () => {
             setUserError({...userError, emailError: "Invalid Email!"})
         }
     }
+    
     // password and validation
     const getUserPassword = (e) => {
         const value = e.target.value
