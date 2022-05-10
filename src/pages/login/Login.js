@@ -17,7 +17,7 @@ const Login = () => {
     const [token] = useJwtToken(user)
 
     // userInfo and user created error // form inputs
-    const [userInfo, setUserInfo] = useState({ name: "", email: "", password: "" })
+    const [userInfo, setUserInfo] = useState({ email: "", password: "" })
     const [userError, setUserError] = useState({ emailError: '', passwordError: '' })
     
     // user location
@@ -28,9 +28,7 @@ const Login = () => {
     // react firebase hooks // Sign-In and Sign-UP 
     const [signInWithGoogle, , , googleSigninError] = useSignInWithGoogle(auth)
     const [signInWithEmailAndPassword, , ,emailSigninError] = useSignInWithEmailAndPassword(auth);
-    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(
-        auth
-    );
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
     
     // redirect page
     useEffect(() => {
@@ -43,7 +41,6 @@ const Login = () => {
     const getUserEmail= (e) => {
         const value = e.target.value
         setUserInfo({ ...userInfo, email: value })
-        
     }
     // get password
     const getUserPassword = (e) => {
@@ -52,18 +49,18 @@ const Login = () => {
     }
 
     // login with email and pass
-    const emailAndPasswordLogin = async(event) => {
+    const emailAndPasswordLogin = (event) => {
         event.preventDefault()
         signInWithEmailAndPassword(userInfo?.email, userInfo?.password)
     }
 
-    // login hooks error handling
+    // Handling user login error
     useEffect(() => {
         const hooksError = googleSigninError || emailSigninError
         if (hooksError) {
             switch (hooksError?.code) {
                 case "auth/invalid-email":
-                    setUserError({ ...userError, emailError: 'Enter A invalid Email' })
+                    setUserError({ ...userError, emailError: 'Please Enter A Valid Email' })
                     console.log(hooksError?.code);
                     break;
                 case "auth/user-not-found":
@@ -86,6 +83,7 @@ const Login = () => {
         <div className="login-page">
             <div id='login' className='user-form'>
                 <Form onSubmit={emailAndPasswordLogin}>
+                    {/* email input*/}
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className='text-dark mb-0'>Email</Form.Label>
                         <Form.Control onChange={getUserEmail} className='' name='email' placeholder='Email' type="email"  />
@@ -93,10 +91,10 @@ const Login = () => {
                             {userError.emailError && <p className='error'>{userError.emailError}</p>}
                         </Form.Text>
                     </Form.Group>
-
+                    {/* Password input*/}
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label className='text-dark mb-0'>Password</Form.Label>
-                        <Form.Control onChange={getUserPassword} type="password" name='password' placeholder='Password'  autoComplete='false' />
+                        <Form.Control onChange={getUserPassword}  type="password" name='password' placeholder='Password'  autoComplete='false' />
                         <Form.Text className="text-muted">
                             {userError.passwordError && <p className='error'>{userError.passwordError}</p>}
                         </Form.Text>

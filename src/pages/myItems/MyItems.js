@@ -53,7 +53,7 @@ const MyItems = () => {
                                 <div className="inventory-card">
                                     <div className='mb-2'>
                                         <h2 className='inventory-name'>{bike?.name}</h2>
-                                        <hp>{bike?.title}</hp>
+                                        <h5>{bike?.title}</h5>
                                     </div>
                                     <img src={bike?.picture} className=" img-fluid w-100" height={100} alt="" />
                                     <div className='my-2'>

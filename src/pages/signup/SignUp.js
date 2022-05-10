@@ -4,27 +4,29 @@ import { Button, Form } from 'react-bootstrap';
 import {useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebaseConfig';
+import useJwtToken from '../../customHooks/useJwtToken';
 
 const SignUp = () => {
+    const [user] = useAuthState(auth)
+    const [token] = useJwtToken(user)
+
     const [userInfo, setUserInfo] = useState({name:"", email: "", password: ""})
     const [userError, setUserError] = useState({emailError: '', passwordError: '', generalError: '' })
    
-    const [user] = useAuthState(auth)
     const navigate = useNavigate()
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
 
     // react firebase hooks
     const [signInWithGoogle, , , googleSigninError] = useSignInWithGoogle(auth)
-    const [createUserWithEmailAndPassword, , , userCreateError] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification : true});
+    const [createUserWithEmailAndPassword, , , createUserError] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification : true});
 
     // redirect page
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate('/')
-            // navigate(from, { replace: true })
         }
-    }, [user])
+    }, [user, token])
 
     // onChange input-valu aecess
     // name
@@ -44,10 +46,11 @@ const SignUp = () => {
             setUserError({...userError, emailError: "Invalid Email!"})
         }
     }
-    
-    // password and validation
+
+    // password 
     const getUserPassword = (e) => {
         const value = e.target.value
+        // validation
         if (!/(?=.*[!@#$%^&*])/.test(value)) {
             setUserError({ ...userError, passwordError: "Must contain al-least 1 Special character" })
             return
@@ -63,14 +66,14 @@ const SignUp = () => {
     }
 
     // signUp Form Handler
-    const signInFormHandle = (event) => {
+    const signUpFormHandle = (event) => {
         event.preventDefault()
         createUserWithEmailAndPassword(userInfo.email, userInfo.password)
     }
 
-    // login hooks error handling
+    // Handle firebase hooks error when signUp
     useEffect(() => {
-        const hooksError = googleSigninError || userCreateError
+        const hooksError = googleSigninError || createUserError
         if (hooksError) {
             switch (hooksError?.code) {
                 case "auth/invalid-email":
@@ -83,18 +86,18 @@ const SignUp = () => {
                     alert('Something Worng Please Chack!')
             }
         }
-    }, [googleSigninError, userCreateError])
+    }, [googleSigninError, createUserError])
 
     return (
         <div className="login-page">
             <div id='signup' className=' user-form'>
-            <Form onSubmit={signInFormHandle}>
+            <Form onSubmit={signUpFormHandle}>
                 <Form.Group className="mb-3" controlId="formBasicText">
-                    <Form.Label className='text-light mb-0'>Name</Form.Label>
+                    <Form.Label className='text-dark mb-0'>Name</Form.Label>
                     <Form.Control onChange={getUserName} className='input-fild' placeholder='Name' type="text" required  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label className='text-light mb-0'>Email</Form.Label>
+                    <Form.Label className='text-dark mb-0'>Email</Form.Label>
                     <Form.Control onChange={getUserEmail}  className='' placeholder='Email' type="email" required  />
                     <Form.Text className="text-muted">
                         {userError.emailError && <p className='error'>{userError.emailError}</p>}    
@@ -102,7 +105,7 @@ const SignUp = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label className='text-light mb-0'>Password</Form.Label>
+                    <Form.Label className='text-dark mb-0'>Password</Form.Label>
                     <Form.Control onChange={getUserPassword} type="password" placeholder='Password' required  autoComplete='false' />
                     <Form.Text className="text-muted">
                         {userError.passwordError && <p className='error'>{userError.passwordError}</p>}    
