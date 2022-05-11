@@ -1,6 +1,6 @@
 .login-page{
     background-image: url("../../../public/images/banner.jpg");
-    padding: 100px 0px 130px 0;
+    padding: 50px 0px 85px 0;
     background-color: rgba(0,0,0,.4);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
@@ -20,7 +20,7 @@
     width: 340px;
     margin: 0 0 0 200px ;
     margin-top: 70px;
-    padding: 35px 20px;
+    padding: 20px 20px 30px;
     background-color: rgb(255, 255, 255);
     /* border: 1px solid black; */
     /* box-shadow: 1px 1px 20px rgb(196, 196, 196); */
@@ -28,7 +28,7 @@
 }
 .user-form .submit-btn{
     width: 100%;
-    font-size: 22px;
+    font-size: 20px;
     padding: 10px 0px;
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(1,42,75,1) 100%);    
 }

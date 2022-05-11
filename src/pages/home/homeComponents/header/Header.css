@@ -1,4 +1,5 @@
 
+
 .nav-contain{
     background-color: white;
 }
@@ -11,5 +12,17 @@
 }
 .user-img{
     border-radius: 50%;
-    width: 50px;
+    width: 35px;
+}
+.logout-btn{
+    /* bg-white py-1 px-2 border-0 ms-1 text-dark
+     */
+    background-color: white;
+    /* padding: ; */
+    border: 0;
+    margin-left: 5px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+
 }

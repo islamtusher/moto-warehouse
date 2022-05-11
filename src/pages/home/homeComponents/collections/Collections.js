@@ -19,7 +19,7 @@ const Collections = () => {
                         <Loading></Loading>
                     </div>
             } 
-                <h1 className='section-title text-start mt-0'>MOTO COLLECTION</h1>
+                <h1 className='section-title text-center text-lg-start '>MOTO COLLECTION</h1>
                 <Row xs={1} md={2} lg={3} className="gy-5">
                     {
                         bikes.slice(0, 6).map(bike => <SingleCollection

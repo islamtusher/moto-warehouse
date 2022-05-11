@@ -98,31 +98,32 @@ const SignUp = () => {
                     </div>
             } 
             <div id='signup' className=' user-form'>
-            <Form onSubmit={signUpFormHandle}>
-                <Form.Group className="mb-3" controlId="formBasicText">
-                    <Form.Label className='text-dark mb-0'>Name</Form.Label>
-                    <Form.Control onChange={getUserName} className='input-fild' placeholder='Name' type="text" required  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label className='text-dark mb-0'>Email</Form.Label>
-                    <Form.Control onChange={getUserEmail}  className='' placeholder='Email' type="email" required  />
-                    <Form.Text className="text-muted">
-                        {userError.emailError && <p className='error'>{userError.emailError}</p>}    
-                    </Form.Text>
-                </Form.Group>
+                <h5 className='text-center text-primary'>Please Sign Up</h5>
+                <Form onSubmit={signUpFormHandle}>
+                    <Form.Group className="mb-3" controlId="formBasicText">
+                        <Form.Label className='text-dark mb-0'>Name</Form.Label>
+                        <Form.Control onChange={getUserName} className='input-fild' placeholder='Name' type="text" required  />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label className='text-dark mb-0'>Email</Form.Label>
+                        <Form.Control onChange={getUserEmail}  className='' placeholder='Email' type="email" required  />
+                        <Form.Text className="text-muted">
+                            {userError.emailError && <p className='error'>{userError.emailError}</p>}    
+                        </Form.Text>
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label className='text-dark mb-0'>Password</Form.Label>
-                    <Form.Control onChange={getUserPassword} type="password" placeholder='Password' required  autoComplete='false' />
-                    <Form.Text className="text-muted">
-                        {userError.passwordError && <p className='error'>{userError.passwordError}</p>}    
-                    </Form.Text>
-                </Form.Group>
-                <div className='text-center mb-3'>
-                    <Button className='submit-btn' type="submit"> Sign Up </Button>
-                </div>
-                
-            </Form>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label className='text-dark mb-0'>Password</Form.Label>
+                        <Form.Control onChange={getUserPassword} type="password" placeholder='Password' required  autoComplete='false' />
+                        <Form.Text className="text-muted">
+                            {userError.passwordError && <p className='error'>{userError.passwordError}</p>}    
+                        </Form.Text>
+                    </Form.Group>
+                    <div className='text-center mb-3'>
+                        <Button className='submit-btn' type="submit"> Sign Up </Button>
+                    </div>
+                    
+                </Form>
             <div className='d-flex justify-content-evenly align-items-center text-dark'>
                 <hr className='line' />
                 <p>Or</p>

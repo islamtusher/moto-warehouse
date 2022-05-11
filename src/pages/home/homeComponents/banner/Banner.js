@@ -1,7 +1,9 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './Banner.css'
 const Banner = () => {
+    const navigate = useNavigate()
     return (
         <div className='banner d-flex'>
             <Container className=' d-flex align-items-center '>
@@ -15,9 +17,9 @@ const Banner = () => {
                             <h1>GROUND OR AIR<br/> THERE IS NO <br/> STOPING FOR US</h1>
                         </div> 
                     </div>
-                    <div className="banner-buttons ">
-                        <button className='common-btn bg-white mb-3' type="submit">PURCHASE US</button>
-                        <button className='common-btn bg-white' type="submit">PRODUCTION</button>
+                    <div className="banner-btns ">
+                        <button onClick={()=>navigate('/collection')} className='common-btn  bg-white ' type="submit">COLLECTION</button>
+                        <button onClick={()=>navigate('/services')} className='common-btn prouction-btn bg-white' type="submit">SERVICES</button>
                     </div>
                 </div>
             </Container>

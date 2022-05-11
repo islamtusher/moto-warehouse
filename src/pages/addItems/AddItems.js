@@ -4,7 +4,7 @@ import './AddItems.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebaseConfig';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStore } from '@fortawesome/free-solid-svg-icons';
 
@@ -38,7 +38,7 @@ const AddItems = () => {
     return (
         <div>
             <div className='adding-form'>
-                <form onSubmit={handleSubmit(onSubmit)} className='form-area'>
+                <Form onSubmit={handleSubmit(onSubmit)} className='form-area'>
                     <Container>
                         <h4 className='add-title '> ADD YOUR ITEMS</h4>
                         <p>Stoke Your Categorys, We Provied Best WareHouse Servies</p>
@@ -64,7 +64,7 @@ const AddItems = () => {
                             </button>
                         </div>
                     </Container>
-                </form>
+                </Form>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
 .banner{
-    background-image: url('../../../../../public/images/banner2.jpg');
+    background-image: url('../../../../../public/images/banner3.jpg');
     height: 100vh;
     background-repeat: no-repeat;
     background-color: rgba(0,0,0,.4);
@@ -11,8 +11,16 @@
     position: relative;
     clip-path: polygon(83% 100%,100% 91%,100% 0,100% 0,0 0,0 87%);
 }
+.banner-btns{
+    display: flex;
+    /* justify-content: end; */
+    align-items: center;
+}
+.prouction-btn{
+    margin: 0 0 0 15px;
+}
 .logo{
-    color: red;
+    width: 50%;
 }
 .main-title h1{
     font-size: 50px;
@@ -29,19 +37,19 @@
     position: relative;
     overflow: hidden;
 
-    padding: 6px 25px;
-    margin: 0 20px;
+    padding: 6px 22px;
+    /* margin: 0 20px; */
     font-size: 21px;
     font-family: 'Poppins', sans-serif;
     color: rgb(67, 67, 67);
     overflow: hidden;
     border: 0;
-    clip-path: polygon(0 0, 89% 0, 100% 100%, 11% 100%);
+    /* clip-path: polygon(0 0, 89% 0, 100% 100%, 11% 100%); */
     background-color: transparent;
 }
 .common-btn::before{
     content: "";
-    clip-path: polygon(0 0, 89% 0, 100% 100%, 11% 100%);;
+    /* clip-path: polygon(0 0, 89% 0, 100% 100%, 11% 100%);; */
     background-color: rgb(31, 166, 250);
     
     position: absolute;
@@ -67,9 +75,24 @@
 @media only screen and (max-width: 600px) {
     .banner{
         clip-path: polygon(79% 100%,100% 94%,100% 0,100% 0,0 0,0 92%);
-        padding: 400px 10px;
+        /* padding: 400px 10px; */
     }
     .main-title h1{
         font-size: 40px;
+    }
+}
+@media only screen and (min-width: 992px) {
+    
+    .banner-btns{
+        justify-content: end;
+    }
+}
+@media only screen and (max-width: 426px) {
+    .banner-btns{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .prouction-btn{
+        margin: 15px 0 0 0px;
     }
 }

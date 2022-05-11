@@ -7,15 +7,15 @@ import { HashLink } from 'react-router-hash-link';
 function CustomLink({ children, to }) {
     let resolved = useResolvedPath(to);
     let match = useMatch({ path: resolved.pathname, end: true });
+    console.log(match);
     return (
-      <div>
-        <Nav.Link
-          as={HashLink}
-          className={ `link ${match ? "activeLink" : ""}`}
+      <div className='custom'>
+        <Link
+          className={ `link ${match ? 'activeLink' : ""}`}
           to={to}
         >
           {children}
-        </Nav.Link>
+        </Link>
       </div>
     );
 }

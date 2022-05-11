@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <div id="contact">
             <div className='titles'>
-                <h1 className='section-title mb-0'>GET IN CLOSE</h1>
+                <h1 className='section-title text-center mb-0'>GET IN CLOSE</h1>
                 <p className='section-sub-title'>FELL FREE TO CONTACT</p>
             </div>
             <div className='footer mt-5'>

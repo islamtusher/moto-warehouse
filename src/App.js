@@ -13,6 +13,8 @@ import MyItems from './pages/myItems/MyItems';
 import AddItems from './pages/addItems/AddItems';
 import Blogs from './pages/blogs/Blogs';
 import Collections from './pages/home/homeComponents/collections/Collections';
+import Services from './pages/home/homeComponents/services/Services';
+import Contact from './pages/contact/Contact';
 
 function App() {
   return (
@@ -37,8 +39,10 @@ function App() {
           </RequireAuth>}>
         </Route>
         <Route path='/additems' element={<AddItems></AddItems>}></Route>
+        <Route path='/collection' element={<Collections></Collections>}></Route>
+        <Route path='/services' element={<Services></Services>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
-        <Route path='/contact' element={<Footer></Footer>}></Route>
+        <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='*' element={<PageNotFound></PageNotFound>}></Route>

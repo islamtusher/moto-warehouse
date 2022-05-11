@@ -89,6 +89,7 @@ const Login = () => {
                 </div>
                 :
                 <div id='login' className='user-form'>
+                    <h5 className='text-center text-primary'>Please Log In</h5>
                     <Form onSubmit={emailAndPasswordLogin}>
                         {/* email input*/}
                         <Form.Group className="mb-3" controlId="formBasicEmail">

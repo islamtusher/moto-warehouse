@@ -1,0 +1,18 @@
+.contact-page{
+    /* background-image: url("../../../public/images/banner.jpg"); */
+    padding: 120px 0px 100px 0;
+    /* background-color: rgba(0,0,0,.4);
+    background-blend-mode: overlay; */
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:cover;
+    clip-path: polygon(15% 99%,100% 85%,100% 0,100% 0,0 0,0 90%);
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif; 
+    
+}
+.contact-img{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
