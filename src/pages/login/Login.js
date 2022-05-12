@@ -1,11 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Toast } from 'react-bootstrap';
 import {useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import useJwtToken from '../../customHooks/useJwtToken';
 import auth from '../../firebaseConfig';
 import Loading from '../loading/Loading';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     // loged-In User
@@ -50,6 +52,11 @@ const Login = () => {
     const emailAndPasswordLogin = (event) => {
         event.preventDefault()
         signInWithEmailAndPassword(userInfo?.email, userInfo?.password)
+    }
+    //
+    const handlePasswordReset = () => {
+        sendPasswordResetEmail(userInfo?.email)
+        toast('Password Reset Email Sending');
     }
 
     // Handling user login error
@@ -106,7 +113,7 @@ const Login = () => {
                             <div className='text-center mb-3'>
                                 <Button  className='submit-btn' type="submit"> Login </Button>
                             </div>
-                            <p onClick={()=>sendPasswordResetEmail(userInfo.email)} className='pass-reset'>Forget Password?</p>
+                            <p onClick={handlePasswordReset} className='pass-reset'>Forget Password?</p>
                         </Form>
                         
                         <div className='d-flex justify-content-evenly align-items-center text-dark'>
@@ -121,6 +128,16 @@ const Login = () => {
                         </div>
                     </div>
             }
+           <ToastContainer className='mt-5' position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover>
+            </ToastContainer>
         </div>
     );
 };

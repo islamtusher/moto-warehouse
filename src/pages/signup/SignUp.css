@@ -1,6 +1,6 @@
 .login-page{
     background-image: url("../../../public/images/banner.jpg");
-    padding: 50px 0px 85px 0;
+    padding: 50px 0px 100px 0;
     background-color: rgba(0,0,0,.4);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
@@ -10,20 +10,26 @@
     background-attachment: fixed;
     font-family: 'Poppins', sans-serif;
 }
+.login-page{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.user-form{
+    width: 340px;
+    margin: 0 auto ;
+    margin-top: 70px;
+    padding: 20px 20px 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
 .user-form input{
     border: none;
     border-bottom: 1px solid rgb(189, 189, 189);
     border-radius: 3px;
     background-color: rgb(240, 240, 240);
 }
-.user-form{
-    width: 340px;
-    margin: 0 0 0 200px ;
-    margin-top: 70px;
-    padding: 20px 20px 30px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-}
+
 .user-form .submit-btn{
     width: 100%;
     font-size: 20px;
