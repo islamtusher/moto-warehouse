@@ -1,6 +1,4 @@
-// import axios from 'axios';
 
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import {useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth';
@@ -8,7 +6,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useJwtToken from '../../customHooks/useJwtToken';
 import auth from '../../firebaseConfig';
 import Loading from '../loading/Loading';
-
 
 const Login = () => {
     // loged-In User
@@ -62,11 +59,9 @@ const Login = () => {
             switch (hooksError?.code) {
                 case "auth/invalid-email":
                     setUserError({ ...userError, emailError: 'Please Enter A Valid Email' })
-                    console.log(hooksError?.code);
                     break;
                 case "auth/user-not-found":
                     setUserError({ ...userError, emailError: 'This User is not existing' })
-                    console.log(hooksError?.code);
                     break;
                 case 'auth/wrong-password':
                     setUserError({ ...userError, passwordError: 'Enter A wrong Password!' })
@@ -83,48 +78,48 @@ const Login = () => {
     return (
         <div className="login-page">
             {
-            loading ?
-                <div style={{ 'height': '700px' }} className='d-flex justify-content-center align-items-center'>
-                    <Loading></Loading>
-                </div>
-                :
-                <div id='login' className='user-form'>
-                    <h5 className='text-center text-primary'>Please Log In</h5>
-                    <Form onSubmit={emailAndPasswordLogin}>
-                        {/* email input*/}
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label className='text-dark mb-0'>Email</Form.Label>
-                            <Form.Control onChange={getUserEmail} className='' name='email' placeholder='Email' type="email"  />
-                            <Form.Text className="text-muted">
-                                {userError.emailError && <p className='error'>{userError.emailError}</p>}
-                            </Form.Text>
-                        </Form.Group>
-                        {/* Password input*/}
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label className='text-dark mb-0'>Password</Form.Label>
-                            <Form.Control onChange={getUserPassword}  type="password" name='password' placeholder='Password'  autoComplete='false' />
-                            <Form.Text className="text-muted">
-                                {userError.passwordError && <p className='error'>{userError.passwordError}</p>}
-                            </Form.Text>
-                        </Form.Group>
-                            
-                        <div className='text-center mb-3'>
-                            <Button  className='submit-btn' type="submit"> Login </Button>
+                loading ?
+                    <div style={{ 'height': '700px' }} className='d-flex justify-content-center align-items-center'>
+                        <Loading></Loading>
+                    </div>
+                    :
+                    <div id='login' className='user-form'>
+                        <h5 className='text-center text-primary'>Please Log In</h5>
+                        <Form onSubmit={emailAndPasswordLogin}>
+                            {/* email input*/}
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label className='text-dark mb-0'>Email</Form.Label>
+                                <Form.Control onChange={getUserEmail} className='' name='email' placeholder='Email' type="email"  />
+                                <Form.Text className="text-muted">
+                                    {userError.emailError && <p className='error'>{userError.emailError}</p>}
+                                </Form.Text>
+                            </Form.Group>
+                            {/* Password input*/}
+                            <Form.Group className="mb-3" controlId="formBasicPassword">
+                                <Form.Label className='text-dark mb-0'>Password</Form.Label>
+                                <Form.Control onChange={getUserPassword}  type="password" name='password' placeholder='Password'  autoComplete='false' />
+                                <Form.Text className="text-muted">
+                                    {userError.passwordError && <p className='error'>{userError.passwordError}</p>}
+                                </Form.Text>
+                            </Form.Group>
+                                
+                            <div className='text-center mb-3'>
+                                <Button  className='submit-btn' type="submit"> Login </Button>
+                            </div>
+                            <p onClick={()=>sendPasswordResetEmail(userInfo.email)} className='pass-reset'>Forget Password?</p>
+                        </Form>
+                        
+                        <div className='d-flex justify-content-evenly align-items-center text-dark'>
+                            <hr className='line' />
+                            <p>Or</p>
+                            <hr className=' line' />
                         </div>
-                        <p onClick={()=>sendPasswordResetEmail(userInfo.email)} className='pass-reset'>Forget Password?</p>
-                    </Form>
-                    
-                    <div className='d-flex justify-content-evenly align-items-center text-dark'>
-                        <hr className='line' />
-                        <p>Or</p>
-                        <hr className=' line' />
+                        <div className="text-center">
+                            <Button onClick={()=>signInWithGoogle()} className='w-100' variant="primary" type="submit">
+                                Google SignIn
+                            </Button>
+                        </div>
                     </div>
-                    <div className="text-center">
-                        <Button onClick={()=>signInWithGoogle()} className='w-100' variant="primary" type="submit">
-                            Google SignIn
-                        </Button>
-                    </div>
-                </div>
             }
         </div>
     );

@@ -1,3 +1,4 @@
+// The Qustions and Answared conponent
 import React from 'react';
 import './Blogs.css'
 import { Col, Container, Row } from 'react-bootstrap';

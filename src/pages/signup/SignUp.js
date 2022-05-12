@@ -10,14 +10,12 @@ import Loading from '../loading/Loading';
 const SignUp = () => {
     const [user, loading] = useAuthState(auth)
     const [token] = useJwtToken(user)
+    const navigate = useNavigate()
 
+    // userInfo and user created error // form inputs
     const [userInfo, setUserInfo] = useState({name:"", email: "", password: ""})
     const [userError, setUserError] = useState({emailError: '', passwordError: '', generalError: '' })
    
-    const navigate = useNavigate()
-    const location = useLocation()
-    let from = location.state?.from?.pathname || "/";
-
     // react firebase hooks
     const [signInWithGoogle, , , googleSigninError] = useSignInWithGoogle(auth)
     const [createUserWithEmailAndPassword, , , createUserError] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification : true});

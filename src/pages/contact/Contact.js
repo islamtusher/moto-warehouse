@@ -1,6 +1,6 @@
 import './Contact.css'
 import { useForm } from 'react-hook-form';
-import { faPlane, faStore } from '@fortawesome/free-solid-svg-icons';
+import { faPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
@@ -12,7 +12,7 @@ const Contact = () => {
         <div>
             <div className='contact-page'>
                 <Container className='d-flex flex-column flex-lg-row justify-content-evenly align-items-center'>
-                    <Form className='form-area'>
+                    <Form className='form-area m-0'>
                         <div className="contact-form">
                             <h4 className='add-title '>Send Us A Message</h4>
                             <p>As soon as possible we you seen feedback</p>
@@ -36,7 +36,7 @@ const Contact = () => {
                             </div>
                         </div>
                     </Form>
-                    <div className="contact-img ">
+                    <div className=" d-flex  align-items-center justify-content-center justify-content-lg-end ">
                         <img className='w-75 ' src="./images/contact.jpeg" alt="contact-img" />
                     </div>
                 </Container>

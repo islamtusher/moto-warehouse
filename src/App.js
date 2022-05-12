@@ -2,19 +2,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import Inventory from './pages/inventory/Inventory';
 import Home from './pages/home/Home';
-import Footer from './pages/home/homeComponents/footer/Footer';
-import Header from './pages/home/homeComponents/header/Header';
+import Header from './sharedComponents/header/Header';
 import Login from './pages/login/Login';
 import PageNotFound from './pages/notFound/PageNotFound';
 import SignUp from './pages/signup/SignUp';
-import RequireAuth from './pages/RequirAuth';
 import ManageInventory from './pages/manageInventory/ManageInventory';
 import MyItems from './pages/myItems/MyItems';
 import AddItems from './pages/addItems/AddItems';
 import Blogs from './pages/blogs/Blogs';
-import Collections from './pages/home/homeComponents/collections/Collections';
-import Services from './pages/home/homeComponents/services/Services';
+import Collections from './pages/homeComponents/collections/Collections';
+import Services from './pages/homeComponents/services/Services';
 import Contact from './pages/contact/Contact';
+import RequireAuth from './requireAuth/RequirAuth';
 
 function App() {
   return (

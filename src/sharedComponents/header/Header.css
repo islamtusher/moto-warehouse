@@ -15,14 +15,11 @@
     width: 35px;
 }
 .logout-btn{
-    /* bg-white py-1 px-2 border-0 ms-1 text-dark
-     */
     background-color: white;
-    /* padding: ; */
     border: 0;
     margin-left: 5px;
     color: black;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
 
 }

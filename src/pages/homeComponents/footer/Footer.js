@@ -1,11 +1,10 @@
 import React from 'react';
-import './Footer.css'
-import { Link } from 'react-router-dom';
+import './Footer.css';
 import { HashLink } from 'react-router-hash-link';
 import { Col, Row, Navbar, Nav, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faSms, faVoicemail } from '@fortawesome/free-solid-svg-icons';
-import { faAddressBook, faAddressCard } from '@fortawesome/free-regular-svg-icons';
+import { faPhone, faSms } from '@fortawesome/free-solid-svg-icons';
+import { faAddressCard } from '@fortawesome/free-regular-svg-icons';
 
 const Footer = () => {
     return (
@@ -17,6 +16,7 @@ const Footer = () => {
             <div className='footer mt-5'>
                 <Container>
                     <Row xs={1} md={2} lg={4} className="gy-5 py-5 footer-area">
+                        {/* about part */}
                         <Col className='d-flex align-items-start justify-content-center'>
                             <div className='d-flex flex-column align-items-start justify-content-start'>
                                 <h4 className='footer-title'>ABOUT US</h4>
@@ -27,6 +27,7 @@ const Footer = () => {
                                 </div>
                             </div>
                         </Col>
+                        {/* Navigaton Part */}
                         <Col className='d-flex align-items-start justify-content-center'>
                             <div className='d-flex flex-column align-items-start justify-content-start'>
                                 <h4 className='footer-title'>OUR PAGES</h4>
@@ -43,7 +44,7 @@ const Footer = () => {
                                 </Navbar>
                             </div>
                         </Col>
-                        
+                        {/* contact part */}
                         <Col className='d-flex flex-column align-items-start justify-content-start'>
                             <h4 className='footer-title'>CONTACAT</h4>
                             <div className="contact">

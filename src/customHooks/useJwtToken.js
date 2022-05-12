@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 
 const useJwtToken = (user) => {
     const [token, setToken] = useState('')
-    // const [user] = useAuthState()
 
     useEffect(() => {
         const getJwtToken = async () => {

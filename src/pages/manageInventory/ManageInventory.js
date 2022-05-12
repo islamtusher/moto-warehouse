@@ -1,16 +1,16 @@
+import React from 'react';
 import './ManageInventory.css'
 import { faDeleteLeft, faStore, faStoreSlash} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import useBikes from '../../customHooks/useBikes';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebaseConfig';
 import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import useBikes from '../../customHooks/useBikes';
+import auth from '../../firebaseConfig';
 import Loading from '../loading/Loading';
 
 const ManageInventory = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const navigate = useNavigate()
     const [bikes] = useBikes()
 
@@ -35,10 +35,12 @@ const ManageInventory = () => {
     }
 
     return (
-        <div className=''>
+        <div>
             <h1 className='section-title'>MANAGE INVENTORY</h1>
             <Container>
-                <Button onClick={()=>navigate('/additems')}>Add Item</Button>
+                <div className="text-center">
+                    <Button className='py-2 px-3' onClick={()=>navigate('/additems')}>Add Item</Button>
+                </div>
                 <Row  xs={1} md={2} lg={3} className="gy-5 w-100 m-0">
                     {
                         bikes.map(bike => 
@@ -49,7 +51,7 @@ const ManageInventory = () => {
                                     </div>
                                     <div className="service-info w-50">
                                         <h5 className='mb-0'>{bike.name}</h5>
-                                        <div className='d-flex'>
+                                        <div className='d-flex justify-content-center justify-content-sm-start'>
                                             <p className='me-4'>{bike.supplier}</p>
                                             <p>
                                                 {bike.quantity > 0 && <FontAwesomeIcon className='me-2 text-success' icon={faStore} />}

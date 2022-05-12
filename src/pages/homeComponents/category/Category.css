@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Poppins:wght@700&display=swap');
 
 .category-section{
-    background-image: url("../../../../../public/images/banner.jpg");
+    background-image: url("../../../../public/images/banner.jpg");
     padding: 100px 0px 200px 0;
     background-color: rgba(0,0,0,.4);
     background-blend-mode: overlay;

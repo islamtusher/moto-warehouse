@@ -3,7 +3,7 @@ import './SingleCollection.css'
 import { Card, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faBangladeshiTakaSign, faDollarSign, faWarehouse, faStore, faProcedures, faHandshake } from '@fortawesome/free-solid-svg-icons';
+import {  faDollarSign, faStore, faHandshake } from '@fortawesome/free-solid-svg-icons';
 
 const SingleCollection = ({ bike }) => {
     const { _id,name, picture, price,quantity, supplier, describe } = bike

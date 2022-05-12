@@ -4,7 +4,6 @@ const useBikes = () => {
     const [bikes, setBikes] = useState([])
     useEffect(() => {
         fetch('https://mysterious-basin-75687.herokuapp.com/bikes')
-        // fetch('bikes.json')
             .then(res => res.json())
             .then(data => setBikes(data))
         

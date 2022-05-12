@@ -11,7 +11,7 @@ const MyItems = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(true)
 
-    // load myItems by filter email
+    // load myItems by filtering email
     useEffect(() => {
         fetch(`https://mysterious-basin-75687.herokuapp.com/myitems?email=${user?.email}`,{
             headers: {
@@ -44,8 +44,12 @@ const MyItems = () => {
         <div className='pb-5'>
             <h1 className='section-title'> STROED ITEMS</h1>
             {
-                loading && <div className='d-flex justify-content-center align-items-center'><Loading></Loading></div>
+                loading &&
+                    <div className='d-flex justify-content-center align-items-center'>
+                        <Loading></Loading>
+                    </div>
             }
+            {/* on No items */}
             {   myItems?.length === 0 && !loading ?
                     <div className="text-center">
                         <h5 className='section-sub-title'>You Dont Have Any items</h5>
@@ -54,6 +58,7 @@ const MyItems = () => {
                     :
                     <></>
             }
+            {/* on Items */}
             <Container className=''>
                 <Row  xs={1} md={1} lg={2} className="gy-5 w-100 mx-0">
                     {

@@ -2,26 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 .custom .link{
     font-size: 18px;
-    margin-right: 10px;
+    margin-right: 15px;
+    margin-bottom: 50px;
     text-decoration: none;
     color: rgb(0, 0, 0);
     letter-spacing: 0.5px;
     font-family: 'Poppins', sans-serif;
-
-}
-a{
-    /* padding: 0; */
 }
 .link:hover{
     color: rgb(20, 128, 182);
 }   
 .activeLink{
     color: rgb(28, 129, 252) !important;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgb(28, 129, 252);
 }
 
 @media only screen and (max-width: 1201px){
-    .link{
-        padding-bottom: 10px;
-        margin-left: 0px;
+    .activeLink{
+        border-bottom: 0;
     }
 }
