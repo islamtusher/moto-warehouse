@@ -11,8 +11,6 @@ const useJwtToken = (user) => {
                 const { data } = await axios.post('https://mysterious-basin-75687.herokuapp.com/token', { email: user?.email })
                 setToken(data?.accessToken)
                 localStorage.setItem('accessToken', data?.accessToken)
-                console.log(data);
-
             }
         }
         getJwtToken()
