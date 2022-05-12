@@ -3,16 +3,18 @@ import { useForm } from 'react-hook-form';
 import { faPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 const Contact = () => {
     const { register, handleSubmit } = useForm();
-
+    const onSubmit = (e) => {
+        e.preventDafault()
+    }
     return (
         <div>
             <div className='contact-page'>
                 <Container className='d-flex flex-column flex-lg-row justify-content-evenly align-items-center'>
-                    <Form className='form-area m-0'>
+                    <Form onSubmit={handleSubmit(onSubmit)} className='form-area m-0'>
                         <div className="contact-form">
                             <h4 className='add-title '>Send Us A Message</h4>
                             <p>As soon as possible we you seen feedback</p>
@@ -29,10 +31,10 @@ const Contact = () => {
                                 </Col>
                             </Row>
                             <div className='text-end'>
-                                <button className='add-btn ' type="submit" value="">
+                                <Button className='add-btn ' type="submit" value="">
                                     <FontAwesomeIcon className='me-2' icon={faPlane} />
                                     Send Us
-                                </button>
+                                </Button>
                             </div>
                         </div>
                     </Form>
