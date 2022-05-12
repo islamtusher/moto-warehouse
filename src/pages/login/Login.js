@@ -55,6 +55,11 @@ const Login = () => {
     }
     //
     const handlePasswordReset = () => {
+        if (!userInfo?.email) {
+            setUserError({ ...userError, emailError: 'Enter Your Email' })
+            return
+        }
+        setUserError({ ...userError, emailError: '' })
         sendPasswordResetEmail(userInfo?.email)
         toast('Password Reset Email Sending');
     }
